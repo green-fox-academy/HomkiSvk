@@ -1,1 +1,72 @@
-
+* {
+  box-sizing: border-box;  
+  margin: 0;
+  padding: 0;
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-family: monospace, 'Courier New', Courier;
+  /* consolas not free to use, used monospace-
+  looks better than courier*/
+  min-width: 400px;
+  max-width: 100%;
+  min-height: 1440px;
+  overflow: auto;
+  background-image: url("assets/background.png");
+}
+#navigation {
+  width: 100%;
+  padding: 5px 10% ;
+  background-color: #333333; 
+  height: 45px;  
+   
+}
+#navigation ul li {
+  float: right;  
+  vertical-align: middle;
+  display: inline;  
+  padding: 0 2% ;  
+}
+.menu{    
+  color: #FF0099; 
+  font-size: 20px;  
+  text-transform: uppercase;       
+}
+#aboutme{
+  margin: 100px 0 0 0;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Pattaya', sans-serif;
+}
+h1{
+  padding: 0 10%;
+  font-size: 48px;  
+}
+h2 {
+  padding: 0 10%;
+}
+#aboutme h2{
+  color: #FF0099;
+  font-weight: normal;
+  font-size: 35px;
+  padding: 0 10%;
+  margin: 20px 0 10px;
+}
+p{
+  margin: 8px;
+  padding: 0 10%;
+  line-height: 1.6;  
+}
+#separator {
+  margin: 50px;
+  text-align: center;  
+}
+#technology h2{
+  margin: 30px;
+  text-align: center;
+  font-size: 38px;
+}
+.ans{
+  font-weight: bold;
+}
