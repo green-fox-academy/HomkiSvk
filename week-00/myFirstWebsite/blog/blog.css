@@ -10,7 +10,7 @@
     min-width: 400px;
     max-width: 100%;  
     overflow: auto;
-    background-image: url("assets/background.png");
+    background-image: url("../assets/background.png");
   }
   #navigation {
     width: 100%;

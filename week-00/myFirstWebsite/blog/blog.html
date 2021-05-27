@@ -2,31 +2,44 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="keyword" content="blog, user blog, personal blog">
-    <meta name="description" content="personal blog posts">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="blog.css">
-    <title>Homki's Blog</title>
+  <meta charset="utf-8">
+  <meta name="keyword" content="blog, user blog, personal blog">
+  <meta name="description" content="personal blog posts">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="blog.css">
+  <title>Homki's Blog</title>
 </head>
 
 <body>
-    <div id="navigation">
-        <img id="logo" style="float: left;" src="../assets/logo.svg" alt="logo triangels in circle">
-        <ul>
-            <li><a class="menu" href="https://www.linkedin.com/in/martin-novosedl%C3%ADk-2972a198/"
-                    target="_blank">LinkedIn</a></li>
-            <li><a class="menu" href="https://github.com/green-fox-academy/HomkiSvk" target="_blank">Github</a></li>
-            <li><a class="menu" href="../index.html#technology">Wiki</a></li>
-            <li><a class="menu" href="blog.html">Blog</a></li>
-            <li><a class="menu" href="../index.html">Home</a></li>
-        </ul>
-    </div>
-    <div id="posts">
+  <div id="navigation">
+    <img id="logo" style="float: left;" src="../assets/logo.svg" alt="logo triangels in circle">
+    <ul>
+      <li><a class="menu" href="https://www.linkedin.com/in/martin-novosedl%C3%ADk-2972a198/" target="_blank">LinkedIn</a></li>
+      <li><a class="menu" href="https://github.com/green-fox-academy/HomkiSvk" target="_blank">Github</a></li>
+      <li><a class="menu" href="../index.html#technology">Wiki</a></li>
+      <li><a class="menu" href="blog.html">Blog</a></li>
+      <li><a class="menu" href="../index.html">Home</a></li>
+    </ul>
+  </div>
+  <form action="/action.php" id="newPost">
+    <h2>Add new post:</h2>
+    <label for="title"><h3>Title:</h3></label>
+    <input type="text" id="inTitle" name="title" ></input>
+    <label for="content"><h3>Content:</h3></label>
+    <input type="text" id="inBox" name="inputBox"></input>
+    <input type="submit" value="Submit" id="subButton">
+  </form>
+  <div id="posts">
+    <h2>Posts</h2>
+    <div class="boxPost">
 
+    </div>
+    <div class="boxPost">
 
     </div>
+  </div>
+
 </body>
 
 </html>
