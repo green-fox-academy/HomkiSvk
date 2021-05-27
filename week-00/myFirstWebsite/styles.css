@@ -42,8 +42,7 @@ body{
   #navigation ul li {float: none;}
 }
 #aboutme{
-  margin: 100px 0 0 0;
-  padding: 0 20px;
+  margin: 100px 0 0 0;  
 }
 h1, h2, h3, h4, h5 {
   font-family: 'Pattaya', sans-serif;
