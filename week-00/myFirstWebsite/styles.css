@@ -19,8 +19,12 @@ body{
   height: auto;  
   min-height: 45px;   
 }
-#navigation ul li {  
+#navigation ul  {  
   float: right;    
+  display: inline;    
+}
+#navigation ul li {  
+  float: left;    
   display: inline;    
 }
 #navigation li a{    
@@ -40,6 +44,7 @@ body{
 }
 @media screen and (max-width: 600px) {  
   #navigation ul li {float: none;}
+  #navigation ul {float: none;}
 }
 #aboutme{
   margin: 100px 0 0 0;  
