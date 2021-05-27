@@ -4,9 +4,7 @@
   padding: 0;
 }
 body{    
-  font-family: monospace, 'Courier New', Courier;
-  /* consolas not free to use, used monospace-
-  looks better than courier*/
+  font-family: Consolas, monospace, 'Courier New', Courier;
   min-width: 400px;
   max-width: 100%;  
   overflow: auto;
@@ -78,6 +76,5 @@ p{
 }
 #technology h3{
   font-weight: bolder;
-  font-size: 25px;
-  font-family: 'Pattaya', sans-serif;
+  font-size: 25px;  
 }
