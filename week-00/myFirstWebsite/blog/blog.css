@@ -57,17 +57,17 @@
     resize: none;
   }
   #addPost .button{
-  background-color: #f8f8f8;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  margin: 20px 10%;
-  cursor: pointer;
+    background-color: #f8f8f8;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 20px 10%;
+    cursor: pointer;
   }
   h1, h2, h3, h4, h5 {
     font-family: 'Pattaya', sans-serif;
