@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
 }
-body{  
+body{    
   font-family: monospace, 'Courier New', Courier;
   /* consolas not free to use, used monospace-
   looks better than courier*/
@@ -16,20 +16,34 @@ body{
   width: 100%;
   padding: 8px 10% ;
   background-color: #333333; 
-  height: 45px;     
+  height: auto;  
+  min-height: 45px;   
 }
-#navigation ul li {
+#navigation ul li {  
   float: right;    
-  display: inline;  
-  padding: 0 2% ;  
+  display: inline;    
 }
-.menu{    
+#navigation li a{    
+  display: block;
   color: #FF0099; 
   font-size: 20px;  
-  text-transform: uppercase;       
+  text-align: center;
+  text-transform: uppercase;  
+  padding: 5px 10px;       
+}
+#navigation li a:hover {
+  color: white;
+}
+#navigation li a.active {
+  background-color: #FF0099;
+  color: white;
+}
+@media screen and (max-width: 600px) {  
+  #navigation ul li {float: none;}
 }
 #aboutme{
   margin: 100px 0 0 0;
+  padding: 0 20px;
 }
 h1, h2, h3, h4, h5 {
   font-family: 'Pattaya', sans-serif;
