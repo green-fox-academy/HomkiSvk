@@ -22,24 +22,27 @@
       <li><a class="menu" href="../index.html">Home</a></li>
     </ul>
   </div>
-  <form action="/action.php" id="newPost">
+  <div id="addPost">
     <h2>Add new post:</h2>
-    <label for="title"><h3>Title:</h3></label>
-    <input type="text" id="inTitle" name="title" ></input>
-    <label for="content"><h3>Content:</h3></label>
-    <input type="text" id="inBox" name="inputBox"></input>
-    <input type="submit" value="Submit" id="subButton">
-  </form>
+    <h3>Title:</h3>
+    <input type="text" id="title"></input>
+    <h3>Content:</h3>
+    <input type="text" id="inBox"></input>
+    <button onclick="newPost()">Submit</button>
+  </div>
   <div id="posts">
     <h2>Posts</h2>
-    <div class="boxPost">
-
-    </div>
-    <div class="boxPost">
-
-    </div>
+    <p id="etitle"></p>
+    <p id="einbox"></p>
   </div>
-
+  <script>
+    function newPost() {
+      var title = document.getElementById("title").value;
+      var inBox = document.getElementById("inBox").value;
+      var etitle = document.getElementById("etitle").innerHTML = title;
+      var einbox = document.getElementById("einbox").innerHTML = inBox;
+    }
+  </script>
 </body>
 
 </html>
