@@ -25,15 +25,15 @@
   <div id="addPost">
     <h2>Add new post:</h2>
     <h3>Title:</h3>
-    <input type="text" id="title"></input>
+    <input type="text" maxlength="100" id="title"></input>
     <h3>Content:</h3>
-    <input type="text" id="inBox"></input>
-    <button onclick="newPost()">Submit</button>
+    <textarea name="boxarea" id="inBox" cols="30" rows="10"></textarea>
+    <button class="button" onclick="newPost()">Submit</button>
   </div>
-  <div id="posts">
-    <h2>Posts</h2>
+  <h2 id="posty">Posts:</h2>
+  <div id="posts">    
     <p id="etitle"></p>
-    <p id="einbox"></p>
+    <textarea id="einbox"></textarea>
   </div>
   <script>
     function newPost() {
