@@ -1,3 +1,5 @@
 # HomkiSvk
 
 Motorcyclist
+
+Technology enthusiast
