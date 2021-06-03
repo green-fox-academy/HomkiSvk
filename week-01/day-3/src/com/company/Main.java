@@ -6,5 +6,6 @@ public class Main {
         System.out.println("Haloo!");
 
         byte ha = 127;
+        System.out.println(ha);
     }
 }
