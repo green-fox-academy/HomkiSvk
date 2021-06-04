@@ -42,11 +42,11 @@ public class BonusCalculator {
         double num1;
         double num2;
         int decimal;
-        String pattern = "#.";
+        StringBuilder pattern = new StringBuilder("#.");
         String formattedNum1;
         String formattedNum2;
         String result;
-        DecimalFormat formatter = new DecimalFormat(pattern);
+        DecimalFormat formatter = new DecimalFormat(pattern.toString());
 
         System.out.println("This is a basic calculator, which can operate with whole numbers between: " + Integer.MIN_VALUE + " and " + Integer.MAX_VALUE + ".\n" +
                 "There are 4 options to choose from (represented by numbers): \n1- Addition\n2- Subtraction\n3- Multiplication\n4- Division\n" +
@@ -68,9 +68,7 @@ public class BonusCalculator {
                 num2 = scan.nextDouble();
                 System.out.println("How many decimals?");
                 decimal = scan.nextInt();
-                for (int i = 0; i < decimal; i++) {
-                    pattern = pattern + '#' ;
-                }
+                pattern.append("#".repeat(Math.max(0, decimal)));
                 formattedNum1 = formatter.format(num1);
                 formattedNum2 = formatter.format(num2);
                 result = formatter.format((num1 + num2));
@@ -83,9 +81,7 @@ public class BonusCalculator {
                 num2 = scan.nextDouble();
                 System.out.println("How many decimals?");
                 decimal = scan.nextInt();
-                for (int i = 0; i < decimal; i++) {
-                    pattern = pattern + '#' ;
-                    }
+                pattern.append("#".repeat(Math.max(0, decimal)));
                 formattedNum1 = formatter.format(num1);
                 formattedNum2 = formatter.format(num2);
                 result = formatter.format((num1 + num2));
@@ -98,9 +94,7 @@ public class BonusCalculator {
                 num2 = scan.nextDouble();
                 System.out.println("How many decimals?");
                 decimal = scan.nextInt();
-                for (int i = 0; i < decimal; i++) {
-                    pattern = pattern + '#' ;
-                }
+                pattern.append("#".repeat(Math.max(0, decimal)));
                 formattedNum1 = formatter.format(num1);
                 formattedNum2 = formatter.format(num2);
                 result = formatter.format((num1 + num2));
@@ -116,9 +110,7 @@ public class BonusCalculator {
                 } else {
                     System.out.println("How many decimals?");
                     decimal = scan.nextInt();
-                    for (int i = 0; i < decimal; i++) {
-                        pattern = pattern + '#' ;
-                    }
+                    pattern.append("#".repeat(Math.max(0, decimal)));
                     formattedNum1 = formatter.format(num1);
                     formattedNum2 = formatter.format(num2);
                     result = formatter.format((num1 + num2));
