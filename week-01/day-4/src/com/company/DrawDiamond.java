@@ -22,6 +22,10 @@ public class DrawDiamond {
 
         System.out.println("How big diamond u want to see? Give me a number:");
         int size = scan.nextInt();
+
+        // my first solution
+
+        /*
         int spaces = size-1;
         int signs = 1;
 
@@ -47,6 +51,32 @@ public class DrawDiamond {
                 System.out.print('*');
             }
             signs -= 2;
+            System.out.println();
+        }
+        */
+
+        //maggie's nicer solution
+
+        int column = (size * 2) - 1;
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < column; j++) {
+                if (j <= (column / 2) + i && j >= (column / 2) - i) {
+                    System.out.print('*');
+                } else {
+                    System.out.print(' ');
+                }
+            }
+                System.out.println();
+        }
+        for (int i = size-2; i >=0; i--) {
+            for (int j = 0; j < column; j++) {
+                if (j <= (column / 2) + i && j >= (column / 2) - i) {
+                    System.out.print('*');
+                } else {
+                    System.out.print(' ');
+                }
+            }
             System.out.println();
         }
     }
