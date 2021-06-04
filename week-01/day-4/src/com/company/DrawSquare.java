@@ -35,8 +35,6 @@ public class DrawSquare {
                 }
                 System.out.println('%');
             }
-
         }
-
     }
 }
