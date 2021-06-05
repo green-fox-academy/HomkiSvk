@@ -1,13 +1,4 @@
-package com.company;
-
-import java.text.DecimalFormat;
-
-import java.util.Scanner;
-
-public class BonusCalculator {
-    public static void main(String[] args) {
-        /*
-        Vytvořte jednoduchou kalkulačku. Program se postupně uživatele dotáže na operaci tak, že 1 odpovídá součtu, 2 rozdílu, 3 součinu a 4 podílu.
+/*      Vytvořte jednoduchou kalkulačku. Program se postupně uživatele dotáže na operaci tak, že 1 odpovídá součtu, 2 rozdílu, 3 součinu a 4 podílu.
         Po volbě operace se program dotáže na dva operandy, které korektně označí podle zvolené operace - tj. pro součet se dotáže na sčítance,
         pro rozdíl na menšence a menšitele, pro součin na činitele a pro podíl na dělence a dělitele. Posledním vstupem programu je počet
         desetinných míst, která se použijí na tisk výsledku.
@@ -33,19 +24,25 @@ public class BonusCalculator {
         Zadej pocet desetinnych mist:
         3
         12.346 * 1.235 = 15.241
+*/
 
-         */
+package com.company;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class BonusCalculator {
+
+    static String createPattern (int decimal){
+        return "#." + "0".repeat(decimal);
+    }
+
+    public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-
         int operation;
         double num1;
         double num2;
         int decimal;
-        StringBuilder pattern = new StringBuilder("#.");
-        String formattedNum1;
-        String formattedNum2;
-        String result;
         DecimalFormat formatter;
 
         System.out.println("This is a basic calculator, which can operate with numbers between: " + Double.MIN_VALUE + " and " + Double.MAX_VALUE + ".\n" +
@@ -68,12 +65,8 @@ public class BonusCalculator {
                 num2 = scan.nextDouble();
                 System.out.println("How many decimals?");
                 decimal = scan.nextInt();
-                pattern.append("#".repeat(Math.max(0, decimal)));
-                formatter = new DecimalFormat(pattern.toString());
-                formattedNum1 = formatter.format(num1);
-                formattedNum2 = formatter.format(num2);
-                result = formatter.format((num1 + num2));
-                System.out.println(formattedNum1 + " + " + formattedNum2 + " = " + result);
+                formatter = new DecimalFormat(createPattern(decimal));
+                System.out.println(formatter.format(num1) + " + " + formatter.format(num2) + " = " + formatter.format((num1 + num2)));
                 break;
             case 2:
                 System.out.println("Give me the first number for subtraction:");
@@ -82,12 +75,8 @@ public class BonusCalculator {
                 num2 = scan.nextDouble();
                 System.out.println("How many decimals?");
                 decimal = scan.nextInt();
-                pattern.append("#".repeat(Math.max(0, decimal)));
-                formatter = new DecimalFormat(pattern.toString());
-                formattedNum1 = formatter.format(num1);
-                formattedNum2 = formatter.format(num2);
-                result = formatter.format((num1 - num2));
-                System.out.println(formattedNum1 + " - " + formattedNum2 + " = " + result);
+                formatter = new DecimalFormat(createPattern(decimal));
+                System.out.println(formatter.format(num1) + " - " + formatter.format(num2) + " = " + formatter.format((num1 - num2)));
                 break;
             case 3:
                 System.out.println("Give me the first number for multiplication:");
@@ -96,12 +85,8 @@ public class BonusCalculator {
                 num2 = scan.nextDouble();
                 System.out.println("How many decimals?");
                 decimal = scan.nextInt();
-                pattern.append("#".repeat(Math.max(0, decimal)));
-                formatter = new DecimalFormat(pattern.toString());
-                formattedNum1 = formatter.format(num1);
-                formattedNum2 = formatter.format(num2);
-                result = formatter.format((num1 * num2));
-                System.out.println(formattedNum1 + " * " + formattedNum2 + " = " + result);
+                formatter = new DecimalFormat(createPattern(decimal));
+                System.out.println(formatter.format(num1) + " * " + formatter.format(num2) + " = " + formatter.format((num1 * num2)));
                 break;
             case 4:
                 System.out.println("Give me the first number for division:");
@@ -117,12 +102,8 @@ public class BonusCalculator {
                 }
                 System.out.println("How many decimals?");
                 decimal = scan.nextInt();
-                pattern.append("#".repeat(Math.max(0, decimal)));
-                formatter = new DecimalFormat(pattern.toString());
-                formattedNum1 = formatter.format(num1);
-                formattedNum2 = formatter.format(num2);
-                result = formatter.format((num1 / num2));
-                System.out.println(formattedNum1 + " / " + formattedNum2 + " = " + result);
+                formatter = new DecimalFormat(createPattern(decimal));
+                System.out.println(formatter.format(num1) + " / " + formatter.format(num2) + " = " + formatter.format((num1 / num2)));
             default:
         }
     }
