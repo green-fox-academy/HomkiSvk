@@ -25,6 +25,5 @@ public class DrawTriangle {
             }
             System.out.println();
         }
-
     }
 }

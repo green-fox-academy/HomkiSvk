@@ -22,6 +22,7 @@ public class DrawSquare {
         System.out.println("How big square u want to see? Give me a number:");
         int size = scan.nextInt();
 
+        /*
         for (int i = 0; i < size; i++) {
             if (i==0 || i==size-1) {
                 for (int j = 0; j < size; j++) {
@@ -35,6 +36,21 @@ public class DrawSquare {
                 }
                 System.out.println('%');
             }
+        }
+
+         */
+
+        // after maggie's CA
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (i==0 || i==size-1 || j==0 || j==size-1 ) {
+                    System.out.print('%');
+                } else {
+                    System.out.print(' ');
+                }
+            }
+            System.out.println();
         }
     }
 }
