@@ -29,7 +29,7 @@ public class Logs {
             try  (BufferedReader textToReverse = new BufferedReader(new FileReader(path.toFile()))) {
                 String line;
                 while ((line = textToReverse.readLine()) != null) {
-                    String[] getIp = line.split("   ");
+                    String[] getIp = line.split(" {3}");
                     if (!ips.contains(getIp[1])){
                         ips.add(getIp[1]);
                     }
@@ -48,7 +48,7 @@ public class Logs {
             try  (BufferedReader textToReverse = new BufferedReader(new FileReader(path.toFile()))) {
                 String line;
                 while ((line = textToReverse.readLine()) != null) {
-                    String[] getIp = line.split("   ");
+                    String[] getIp = line.split(" {3}");
                     if (getIp[2].equals("GET /")){
                         getCount++;
                     }
