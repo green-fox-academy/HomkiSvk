@@ -1,11 +1,11 @@
 package com.company.exercises;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class ReversedLines {
 
@@ -43,32 +43,28 @@ public class ReversedLines {
             e.printStackTrace();
         }
 
-        decrypt(path);
+        reverseFileText(path);
     }
 
-    private static void decrypt(Path path) {
-        List<String> decryptedText = new ArrayList<>();
+    private static void reverseFileText(Path path) {
+        List<String> reveredList = new ArrayList<>();
+
         try {
-            List<String> text = Files.readAllLines(path);                       //load all lines
-            Files.write(path, decryptedText);
-            for (String sentence: text ) {
-                String[] words = sentence.split("  ");                    // split into words
-                for (String word : words) {
-                    StringBuilder decryptedLine = new StringBuilder();
-                    char[] beforeDecryption = word.toCharArray();               // split into characters
-                    for (int i = 0; i < beforeDecryption.length; i += 2) {      // decrypt by removing every odd char
-                        decryptedLine.append(beforeDecryption[i]);
-                    }
-                    Files.writeString(path, decryptedLine + " ", StandardOpenOption.APPEND);
+            try  (BufferedReader textToReverse = new BufferedReader(new FileReader(path.toFile()))) {
+                String line;
+                while ((line = textToReverse.readLine()) != null) {
+                    StringBuilder thisLine = new StringBuilder(line);
+                    reveredList.add(thisLine.reverse().toString());
                 }
-                Files.writeString(path, "\n", StandardOpenOption.APPEND);
             }
+            System.out.println("Content of the file is decrypted.");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(decryptedText);
-    }
-
-
+        try {
+            Files.write(path, reveredList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
