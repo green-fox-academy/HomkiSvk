@@ -18,6 +18,7 @@ public class DivideByZero {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Give me a divisor: ");
         int divisor = scanner.nextInt();
 

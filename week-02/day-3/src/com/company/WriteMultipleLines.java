@@ -33,10 +33,9 @@ public class WriteMultipleLines {
         writeMoreLinesIntoFile(path, text, lines);
     }
 
-    private static void writeMoreLinesIntoFile(String path, String text, int lines) {
+    public static void writeMoreLinesIntoFile(String path, String text, int lines) {
         Path filePath = Paths.get(path);
         //not taken care of if lines <=0
-
         try {
             Files.writeString(filePath, text+ " \n"); // clears the file and starts the new one
             for (int i = 1; i < lines; i++) {
