@@ -18,6 +18,11 @@ public class WriteSingleLine {
         System.out.println("What's your name?");
         String name = scan.next();
 
+        writeNameIntoFile(name);
+
+    }
+
+    private static void writeNameIntoFile(String name) {
         Path filePath = Paths.get("my-file.txt");
 
         try {
@@ -25,6 +30,5 @@ public class WriteSingleLine {
         } catch (IOException e) {
             System.out.println("Unable to write file: my-file.txt");
         }
-
     }
 }
