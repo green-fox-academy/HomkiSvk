@@ -1,0 +1,9 @@
+Path filePath = Paths.get("my-file.txt");
+        try {
+            List<String> lines = Files.readAllLines(filePath);
+            for (String i:lines ) {
+                System.out.println(i);
+            }
+        } catch (IOException e) {
+            System.out.println("Unable to read file: my-file.txt");
+        }
