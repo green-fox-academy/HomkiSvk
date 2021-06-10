@@ -5,29 +5,27 @@ import java.util.Random;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class ColoredBox {
+public class HorizontalLines {
     public static void drawImage(Graphics graphics) {
-        // Draw a box that has different colored lines on each edge
+        // Create a function that takes 3 parameters and draws a single line
+        // Parameters: the x and y coordinates of the line's starting point and the graphics
+        // The function shall draw a 50 long horizontal line from that point
+        // Draw at least 3 lines with that function using a loop
         Graphics2D g2 = (Graphics2D) graphics;
         g2.setStroke(new BasicStroke(2));
 
-        rainbowColors(graphics);
-        graphics.drawLine(100, 100, 200, 100);
+        for (int i = 0; i < 1000; i++) {
+            Random random = new Random();
+            int a = random.nextInt(WIDTH-50);
+            int b = random.nextInt(HEIGHT);
 
-        rainbowColors(graphics);
-        graphics.drawLine(200, 100, 200, 200);
-
-        rainbowColors(graphics);
-        graphics.drawLine(200, 200, 100, 200);
-
-        rainbowColors(graphics);
-        graphics.drawLine(100, 200, 100, 100);
-
+            ColoredBox.rainbowColors(graphics);
+            goHorizontal50(a,b, graphics);
+        }
     }
-    public static void rainbowColors (Graphics graphics){
-        Random random =new Random();
-        Color rainbow = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
-        graphics.setColor(rainbow);
+
+    private static void goHorizontal50(int a, int b, Graphics graphics) {
+        graphics.drawLine(a,b,a+50, b);
     }
 
     // Don't touch the code below

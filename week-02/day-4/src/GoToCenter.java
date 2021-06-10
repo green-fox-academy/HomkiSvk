@@ -16,13 +16,11 @@ public class GoToCenter {
         g2.setStroke(new BasicStroke(2));
         Random random = new Random();
 
-        for (int i = 0; i < 20; i++) {
-            int a = random.nextInt(640);
-            int b = random.nextInt(640);
+        for (int i = 0; i < 1000; i++) {
+            int a = random.nextInt(WIDTH);
+            int b = random.nextInt(HEIGHT);
 
-            Color rainbow = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
-            graphics.setColor(rainbow);
-
+            ColoredBox.rainbowColors(graphics);
             toTheCenter(a,b, graphics);
         }
     }
