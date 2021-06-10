@@ -14,7 +14,7 @@ public class FourRectangles {
         Graphics2D g2 = (Graphics2D) graphics;
         g2.setStroke(new BasicStroke(2));
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {            // i read triangles first time :D, so im drawing triangles
             Random random = new Random();
             int a = random.nextInt(WIDTH-150);
             int b = 150+random.nextInt(HEIGHT-150);
