@@ -5,13 +5,14 @@ import java.util.Random;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class PositionSquare {
+public class CenterBoxFunction {
 
     public static void drawImage(Graphics graphics){
-        // Create a function that takes 3 parameters and draws one square
-        // Parameters: the x and y coordinates of the square's top left corner and the graphics
-        // The function shall draw a 50x50 square from that point
+        // Create a function that takes 2 parameters and draws one square
+        // Parameters: the square size and the graphics
+        // The function shall draw a square of that size to the center of the canvas
         // Draw 3 squares with that function
+        // (the squares should not be filled otherwise they will hide each other)
         // Avoid code duplication!
 
         Graphics2D g2 = (Graphics2D) graphics;
@@ -19,16 +20,15 @@ public class PositionSquare {
 
         for (int i = 0; i < 3; i++) {
             Random random = new Random();
-            int a = random.nextInt(WIDTH-50);
-            int b = random.nextInt(HEIGHT-50);
+            int size = random.nextInt(WIDTH-2);
 
             ColoredBox.rainbowColors(graphics);
-            randomSquare(a,b, graphics);
+            centerSquare(size, graphics);
         }
     }
 
-    public static void randomSquare(int a, int b, Graphics graphics) {
-        graphics.drawRect(a, b, 50,50);
+    private static void centerSquare(int size, Graphics graphics) {
+        graphics.drawRect(WIDTH/2-size/2,HEIGHT/2-size/2, size,size);
     }
 
     // Don't touch the code below
@@ -53,5 +53,4 @@ public class PositionSquare {
             drawImage(graphics);
         }
     }
-
 }
