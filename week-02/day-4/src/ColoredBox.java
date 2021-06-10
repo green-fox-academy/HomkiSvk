@@ -7,8 +7,20 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class ColoredBox {
     public static void drawImage(Graphics graphics) {
         // Draw a box that has different colored lines on each edge
+        Graphics2D g2 = (Graphics2D) graphics;
+        g2.setStroke(new BasicStroke(2));
 
+        graphics.setColor(Color.RED);
+        graphics.drawLine(100, 100, 200, 100);
 
+        graphics.setColor(Color.BLUE);
+        graphics.drawLine(200, 100, 200, 200);
+
+        graphics.setColor(Color.GREEN);
+        graphics.drawLine(200, 200, 100, 200);
+
+        graphics.setColor(Color.CYAN);
+        graphics.drawLine(100, 200, 100, 100);
 
     }
 
