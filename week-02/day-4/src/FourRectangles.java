@@ -27,9 +27,10 @@ public class FourRectangles {
     private static void randomSizeTriangle(int a, int b, Graphics graphics) {
         Random randSize = new Random();
         int size = 50 + randSize.nextInt(5)*20;
+        double height = (size/2) * (Math.sqrt(3));
 
         int [] xpoints = {a, a+size, a+size/2};
-        int [] ypoints = {b, b, b-size};
+        int [] ypoints = {b, b,b-( (int) height)};
         graphics.drawPolygon(xpoints, ypoints, xpoints.length);
     }
 
