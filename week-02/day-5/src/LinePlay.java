@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.Random;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class LinePlay {
@@ -11,7 +9,6 @@ public class LinePlay {
         g2.setStroke(new BasicStroke(2));  //u can set line thickness here
 
         // set the count for number of lines u want
-        // set offset parameter to offset from sides
 
         int count = 25;
         int size =  HEIGHT -20;
