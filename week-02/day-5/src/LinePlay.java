@@ -8,7 +8,7 @@ public class LinePlay {
     public static void drawImage(Graphics graphics) {
 
         Graphics2D g2 = (Graphics2D) graphics;
-        g2.setStroke(new BasicStroke(1));  //u can set line thickness here
+        g2.setStroke(new BasicStroke(2));  //u can set line thickness here
 
         // set the count for number of lines u want
         // set offset parameter to offset from sides
@@ -16,7 +16,9 @@ public class LinePlay {
         int count = 25;
         int size =  HEIGHT -20;
 
+        graphics.setColor(Color.GREEN);
         lowerLeftLines(count, size, 10, HEIGHT-10, graphics);
+        graphics.setColor(Color.PINK);
         upperRightLines(count, size, WIDTH-10, 10, graphics);
     }
 
