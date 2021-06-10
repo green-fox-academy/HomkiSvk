@@ -7,64 +7,70 @@ public class EnvelopeStar {
     public static void drawImage(Graphics graphics) {
 
         Graphics2D g2 = (Graphics2D) graphics;
-        g2.setStroke(new BasicStroke(1));  //u can set line thickness here
+        g2.setStroke(new BasicStroke(2));  //u can set line thickness here
 
-        // set the count for number of lines u want
-        // set offset parameter to offset from sides
+        // set the lines for number of lines u want
+        int lines = 15;
 
-        int count = 20;
-        int size = (HEIGHT / 2)-10;
-        int startingPointX = HEIGHT / 2;
-        int startingPointY = WIDTH / 2;
+       /* for (int i = 40; i < WIDTH; i+=80) {
+            for (int j = 40; j < HEIGHT; j+=80) {
+                drawStar(lines, 40, i, j, graphics);            //for little fun
+            }
+        }*/
 
-        lowerLeftLines(count, size, startingPointX, startingPointY, graphics);
-        upperRightLines(count, size, startingPointX, startingPointY, graphics);
-        lowerRightLines(count, size, startingPointX, startingPointY, graphics);
-        upperLeftLines(count, size, startingPointX, startingPointY, graphics);
+        //for exercise
+        drawStar(lines, WIDTH, HEIGHT/2, WIDTH/2, graphics);
     }
 
-    public static void lowerLeftLines(int count, int size, int startingPointX, int startingPointY, Graphics graphics) {
-        int spacing = size / count;
-        int verticalY = startingPointY - size ;               //Y-axis point of the line - starting point
+    private static void drawStar(int linesCount, int size, int startingPointX, int startingPointY, Graphics graphics) {
+        lowerLeftLines(linesCount, size/2-5, startingPointX, startingPointY, graphics);
+        upperRightLines(linesCount, size/2-5, startingPointX, startingPointY, graphics);
+        lowerRightLines(linesCount, size/2-5, startingPointX, startingPointY, graphics);
+        upperLeftLines(linesCount, size/2-5, startingPointX, startingPointY, graphics);
+    }
+
+    public static void lowerLeftLines(int linesCount, int size, int startingPointX, int startingPointY, Graphics graphics) {
+        int spacing = size / linesCount;
+        int verticalY = startingPointY - size ;                         //Y-axis point of the line - starting point
         int inlineX = startingPointX;                                  //X-axis point of the line - starting point
 
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < linesCount; i++) {
             graphics.drawLine(inlineX, startingPointY, startingPointX, verticalY);
             inlineX += spacing;
             verticalY += spacing;
         }
     }
 
-    public static void upperRightLines(int count, int size, int startingPointX, int startingPointY, Graphics graphics) {
-        int spacing = size / count;
-        int verticalY = startingPointY + size ;      //Y-axis point of the line - starting point
+    public static void upperRightLines(int linesCount, int size, int startingPointX, int startingPointY, Graphics graphics) {
+        int spacing = size / linesCount;
+        int verticalY = startingPointY + size ;                         //Y-axis point of the line - starting point
         int inlineX = startingPointX;                                  //X-axis point of the line - starting point
 
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < linesCount; i++) {
             graphics.drawLine(inlineX, startingPointY, startingPointX, verticalY);
             inlineX -= spacing;
             verticalY -= spacing;
         }
     }
 
-    public static void lowerRightLines(int count, int size, int startingPointX, int startingPointY, Graphics graphics) {
-        int spacing = size / count;
-        int verticalY = startingPointY - size ;            //Y-axis point of the line - starting point
+    public static void lowerRightLines(int linesCount, int size, int startingPointX, int startingPointY, Graphics graphics) {
+        int spacing = size / linesCount;
+        int verticalY = startingPointY - size ;                             //Y-axis point of the line - starting point
         int inlineX = startingPointX - spacing;                              //X-axis point of the line - starting point
 
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < linesCount; i++) {
             graphics.drawLine(inlineX, startingPointY, startingPointX, verticalY);
             inlineX -= spacing;
             verticalY += spacing;
         }
     }
 
-    public static void upperLeftLines(int count, int size, int startingPointX, int startingPointY, Graphics graphics) {
-        int spacing = size / count;
-        int verticalY = startingPointY + size ;           //Y-axis point of the line - starting point
+    public static void upperLeftLines(int linesCount, int size, int startingPointX, int startingPointY, Graphics graphics) {
+        int spacing = size / linesCount;
+        int verticalY = startingPointY + size ;                             //Y-axis point of the line - starting point
         int inlineX = startingPointX + spacing;                             //X-axis point of the line - starting point
 
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < linesCount; i++) {
             graphics.drawLine(inlineX, startingPointY, startingPointX, verticalY);
             inlineX += spacing;
             verticalY -= spacing;
