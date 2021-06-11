@@ -19,6 +19,7 @@ public class EnvelopeStar {
         }*/
 
         //for exercise
+        graphics.setColor(Color.ORANGE);
         drawStar(lines, WIDTH, HEIGHT/2, WIDTH/2, graphics);
     }
 

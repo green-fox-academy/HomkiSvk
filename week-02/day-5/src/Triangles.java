@@ -10,16 +10,16 @@ public class Triangles {
 
         int count = 20;                // only this parameter needs to change to modify number of triangles in a row
         int size = WIDTH / count;
-        int positionX = 0;
-        int positionY = HEIGHT - 50;
+        int offset = WIDTH % count;
+        int positionX = offset/2;                           // centering the big one
+        int positionY = HEIGHT - 50;                        // separation from the bottom
         double height = (size * (Math.sqrt(3)) / 2);
 
         for (int j = count; j > 0; j--) {
-            drawTriangle(positionX, positionY, size, height, graphics);
             int inlineX = positionX;
-            for (int k = j - 1; k > 0; k--) {
-                inlineX += size;
+            for (int k = j ; k > 0; k--) {
                 drawTriangle(inlineX, positionY, size, height, graphics);
+                inlineX += size;
             }
             positionX += size / 2;
             positionY -= height;
