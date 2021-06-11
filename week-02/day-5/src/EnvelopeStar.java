@@ -10,24 +10,33 @@ public class EnvelopeStar {
         g2.setStroke(new BasicStroke(2));  //u can set line thickness here
 
         // set the lines for number of lines u want
-        int lines = 15;
+        int lines = 20;                                 //how many lines u want in each quadrant
+        graphics.setColor(Color.ORANGE);
 
-       /* for (int i = 40; i < WIDTH; i+=80) {
-            for (int j = 40; j < HEIGHT; j+=80) {
-                drawStar(lines, 40, i, j, graphics);            //for little fun
+        //for little fun
+        /*int gridSize = 2;
+        int sizeInGrid = WIDTH/gridSize;
+
+        for (int startingX = sizeInGrid/2; startingX < WIDTH; startingX+=sizeInGrid) {
+            for (int startingY = sizeInGrid/2; startingY < HEIGHT; startingY+=sizeInGrid) {
+                drawStar(lines, sizeInGrid, startingX, startingY, graphics);
             }
         }*/
 
         //for exercise
-        graphics.setColor(Color.ORANGE);
+        // 1st parameter is number of lines u want to put into each quadrant
+        // 2nd parameter is size of the star
+        // 3rd nad 4th are coordinates x and y of the middle point in star
+
         drawStar(lines, WIDTH, HEIGHT/2, WIDTH/2, graphics);
+
     }
 
     private static void drawStar(int linesCount, int size, int startingPointX, int startingPointY, Graphics graphics) {
-        lowerLeftLines(linesCount, size/2-5, startingPointX, startingPointY, graphics);
-        upperRightLines(linesCount, size/2-5, startingPointX, startingPointY, graphics);
-        lowerRightLines(linesCount, size/2-5, startingPointX, startingPointY, graphics);
-        upperLeftLines(linesCount, size/2-5, startingPointX, startingPointY, graphics);
+        lowerLeftLines(linesCount, size/2, startingPointX, startingPointY, graphics);
+        upperRightLines(linesCount, size/2, startingPointX, startingPointY, graphics);
+        lowerRightLines(linesCount, size/2, startingPointX, startingPointY, graphics);
+        upperLeftLines(linesCount, size/2, startingPointX, startingPointY, graphics);
     }
 
     public static void lowerLeftLines(int linesCount, int size, int startingPointX, int startingPointY, Graphics graphics) {
@@ -57,7 +66,7 @@ public class EnvelopeStar {
     public static void lowerRightLines(int linesCount, int size, int startingPointX, int startingPointY, Graphics graphics) {
         int spacing = size / linesCount;
         int verticalY = startingPointY - size ;                             //Y-axis point of the line - starting point
-        int inlineX = startingPointX - spacing;                              //X-axis point of the line - starting point
+        int inlineX = startingPointX ;                              //X-axis point of the line - starting point
 
         for (int i = 0; i < linesCount; i++) {
             graphics.drawLine(inlineX, startingPointY, startingPointX, verticalY);
@@ -69,7 +78,7 @@ public class EnvelopeStar {
     public static void upperLeftLines(int linesCount, int size, int startingPointX, int startingPointY, Graphics graphics) {
         int spacing = size / linesCount;
         int verticalY = startingPointY + size ;                             //Y-axis point of the line - starting point
-        int inlineX = startingPointX + spacing;                             //X-axis point of the line - starting point
+        int inlineX = startingPointX ;                             //X-axis point of the line - starting point
 
         for (int i = 0; i < linesCount; i++) {
             graphics.drawLine(inlineX, startingPointY, startingPointX, verticalY);
