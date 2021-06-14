@@ -3,11 +3,14 @@ public class GreatestCommonDivisor {
 
     public static void main(String[] args) {
 
-        //System.out.println(gretDivisor(34, 29));
+        System.out.println(greatDivisor(100, 45));
 
     }
+    //euclidean algorithm
+    private static int greatDivisor(int a, int b) {
+        if (b==0)
+            return a;
+        else return greatDivisor(b, a % b);
 
-    /*private static int gretDivisor(int a, int b) {
-        if ()
-    }*/
+    }
 }
