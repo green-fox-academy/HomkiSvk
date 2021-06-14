@@ -10,14 +10,9 @@ public class StringsAgainAndAgain {
     }
 
     private static String starAdder(String saxanaxixi) {
-        if(saxanaxixi.length() == 0)
-            return "";
+        if(saxanaxixi.length() == 1)
+            return saxanaxixi.charAt(0) + "";
 
-        if (saxanaxixi.charAt(0) != '*')
-            return "*" + saxanaxixi.charAt(0) + starAdder(saxanaxixi.substring(1));
-
-        else
-            return saxanaxixi.charAt(0) + starAdder(saxanaxixi.substring(1));
+        return saxanaxixi.charAt(0) + "*" + starAdder(saxanaxixi.substring(1));
     }
-
 }
