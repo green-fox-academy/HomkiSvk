@@ -10,6 +10,15 @@ public class Dominoes {
         // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
         // eg: [2, 4], [4, 3], [3, 5] ...
 
+        for (int i = 0; i < dominoes.size(); i++) {
+            for (int j = 1; j < dominoes.size(); j++) {
+                if (dominoes.get(i).getRightSide() == dominoes.get(j).getLeftSide()){
+                    dominoes.add(i+1, dominoes.get(j));
+                    dominoes.remove(j+1);
+                }
+            }
+        }
+
         System.out.println(dominoes);
     }
 
