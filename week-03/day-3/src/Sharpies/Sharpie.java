@@ -12,6 +12,10 @@ public class Sharpie {
         this.inkAmount = 100;
     }
 
+    public float getInkAmount() {
+        return inkAmount;
+    }
+
     public void use() {
         this.inkAmount -= 10;
     }
