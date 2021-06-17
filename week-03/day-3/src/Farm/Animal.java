@@ -1,4 +1,4 @@
-package Animals;
+package Farm;
 
 public class Animal {
 
@@ -8,6 +8,10 @@ public class Animal {
     public Animal() {
         this.hunger = 50;
         this.thirst = 50;
+    }
+
+    public int getHunger() {
+        return hunger;
     }
 
     public void eat() {
