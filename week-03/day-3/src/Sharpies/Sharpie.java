@@ -1,3 +1,5 @@
+package Sharpies;
+
 public class Sharpie {
 
     private String color;

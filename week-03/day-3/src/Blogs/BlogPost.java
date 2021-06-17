@@ -1,3 +1,5 @@
+package Blogs;
+
 public class BlogPost {
 
     private String authorName;

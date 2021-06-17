@@ -1,3 +1,5 @@
+package Pokemon;
+
 public class Pokemon {
     String name;
     String type;

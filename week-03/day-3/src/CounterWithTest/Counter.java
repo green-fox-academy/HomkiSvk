@@ -1,3 +1,5 @@
+package CounterWithTest;
+
 public class Counter {
 
     private int counter = 0;

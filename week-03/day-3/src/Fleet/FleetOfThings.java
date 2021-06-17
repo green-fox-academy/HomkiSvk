@@ -1,10 +1,12 @@
+package Fleet;
+
 public class FleetOfThings {
 
     public static void main(String[] args) {
         Fleet fleet = new Fleet();
-        // - You have the `Thing` class
-        // - You have the `Fleet` class
-        // - You have the `FleetOfThings` class with a `main()` method
+        // - You have the `Fleet.Thing` class
+        // - You have the `Fleet.Fleet` class
+        // - You have the `Fleet.FleetOfThings` class with a `main()` method
         // - Download those, use those
         // - Create a fleet in the main() method
 
