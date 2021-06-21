@@ -2,12 +2,12 @@ package day1.exercises.greenfoxinheritance;
 
 import day1.inheritanceBeforeMR.Levels;
 
-public class Mentor extends Person{
+public class Mentor extends Person {
 
     private Levels level;
 
     public Mentor(String name, int age, String gender, Levels level) {
-        super (name, age, gender);
+        super(name, age, gender);
         this.level = level;
     }
 

@@ -1,6 +1,6 @@
 package day1.exercises.greenfoxinheritance;
 
-public class Sponsor extends Person{
+public class Sponsor extends Person {
 
     private String company;
     private int hiredStudents;
