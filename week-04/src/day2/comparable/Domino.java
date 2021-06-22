@@ -1,13 +1,6 @@
 package day2.comparable;
 
-public class Domino implements Comparable<Domino> {
-    private final int left;
-    private final int right;
-
-    public Domino(int left, int right) {
-        this.left = left;
-        this.right = right;
-    }
+public record Domino(int left, int right) implements Comparable<Domino> {
 
     public int getLeftSide() {
         return left;
@@ -24,11 +17,10 @@ public class Domino implements Comparable<Domino> {
 
     @Override
     public int compareTo(Domino o) {
-        if (this.left > o.left || ((this.left == o.left) && (this.right > o.right))) {
-            return 1;
-        } else if (this.left < o.left || ((this.left == o.left) && (this.right < o.right))) {
-            return -1;
-        } else
-            return 0;
+        int result = this.left - o.left;
+        if (result == 0) {
+            return this.right - o.right;
+        }
+        return result;
     }
 }
