@@ -15,41 +15,58 @@ public class TodoApp {
                     Command line arguments:
                         -l   Lists all the tasks
                         -a   Adds a new task
-                        -r   Removes an task
-                        -c   Completes an task
+                        -r   Removes a task
+                        -c   Completes a task
                     """);
         } else {
             switch (args[0]) {
-                case "-l": {
+                case "-l" -> {
                     if (args.length == 1) {
                         TaskList.listAllTasks();
-                        break;
                     }
                 }
-                case "-a": {
+                case "-a" -> {
                     if (args.length == 1) {
                         System.out.println("Unable do add: no task provided");
-                        break;
                     } else {
                         TaskList.addNewTask(args[1]);
                     }
-                    break;
                 }
-                case "-r": {
-                    System.out.println("Removes a task");
-
-                    //removeTask();
-                    break;
+                case "-r" -> {
+                    if (args.length == 1) {
+                        System.out.println("Unable to remove: no index provided");
+                    } else {
+                        try {
+                            TaskList.removeTask(Integer.parseInt(args[1]));
+                        } catch (NumberFormatException e) {
+                            System.out.println("Unable to remove: index is not a number");
+                        }
+                    }
                 }
-                case "-c": {
-                    System.out.println("Completes a task");
-
-                    //completeTask();
-                    break;
+                case "-c" -> {
+                    if (args.length == 1) {
+                        System.out.println("Unable to check: no index provided");
+                    } else {
+                        try {
+                            TaskList.completeTask(Integer.parseInt(args[1]));
+                        } catch (NumberFormatException e) {
+                            System.out.println("Unable to check: index is not a number");
+                        }
+                    }
                 }
-                default:
+                default -> System.out.println("""
+                        Unsupported argument
+                                                    
+                        Command Line Todo application
+                        =============================
+                                                
+                        Command line arguments:
+                            -l   Lists all the tasks
+                            -a   Adds a new task
+                            -r   Removes a task
+                            -c   Completes a task
+                        """);
             }
         }
-
     }
 }
