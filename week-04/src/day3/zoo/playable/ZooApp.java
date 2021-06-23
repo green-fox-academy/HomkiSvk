@@ -1,8 +1,6 @@
 package day3.zoo.playable;
 
-import day3.zoo.animals.Bird;
-import day3.zoo.animals.Mammal;
-import day3.zoo.animals.Reptile;
+import day3.zoo.animals.*;
 
 public class ZooApp {
 
@@ -13,9 +11,12 @@ public class ZooApp {
         Bird bird = new Bird("Parrot");
 
         System.out.println("How do you breed?");
-        System.out.println("A " + reptile.getName() + " is breeding by " + reptile.breed());
-        System.out.println("A " + mammal.getName() + " is breeding by " + mammal.breed());
-        System.out.println("A " + bird.getName() + " is breeding by " + bird.breed());
+        System.out.println("A " + reptile.getName() + ", " + reptile.whereDoesItLive() +
+                " based animal is breeding by " + reptile.breed());
+        System.out.println("A " + mammal.getName() + ", " + mammal.whereDoesItLive() +
+                " based animal is breeding by " + mammal.breed());
+        System.out.println("A " + bird.getName() + ", " + bird.whereDoesItLive() +
+                " based animal is breeding by " + bird.breed());
     }
 
 }
