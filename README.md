@@ -2,6 +2,8 @@
 
 [Our syllabus repo](https://github.com/green-fox-academy/prg-ori-syllabus)
 
+[To do application from week4](https://github.com/green-fox-academy/HomkiSvk-TodoApp.git)
+
 [Personal github](https://github.com/HomkiSvk)
 
 [WebPage on GitHub.io](https://homkisvk.github.io/index.html)
