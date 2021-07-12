@@ -14,6 +14,15 @@ public class Exercises {
         List<String> cities = Arrays.asList("ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS");
         List<Character> sentence = Arrays.asList('J', 'a', 'n', 'k', 'o', ' ', 'a', ' ', 'M', 'a', 'r', 'i', 'e', 'n', 'k', 'a');
         String string = "Alphabetical numeric unordered";
+        List<Fox> foxList = Arrays.asList(
+                new Fox("Zelena", "Green", 6),
+                new Fox("Biela", "White", 5),
+                new Fox("Ruzova", "Pink", 4),
+                new Fox("SvetloZelena", "Green", 5),
+                new Fox("Modra", "Blue", 7),
+                new Fox("TmavoZelena", "Green", 8),
+                new Fox("Oranzova", "Orange", 3)
+                );
 
 
         System.out.println("Exercise 1:");
@@ -108,6 +117,20 @@ public class Exercises {
 
         System.out.println("Exercise 10:");
 
+        foxList.stream()
+                .filter(fox -> fox.getColor().equals("Green"))
+                .forEach(System.out::println);
+
+        System.out.println("---------------");
+
+        foxList.stream()
+                .filter(fox -> fox.getColor().equals("Green"))
+                .filter(fox -> fox.getAge() > 5)
+                .forEach(System.out::println);
+
+        System.out.println("---------------");
+
+        //Map<String, Fox> foxByColors = foxList.stream().
 
         System.out.println("---------------");
 
