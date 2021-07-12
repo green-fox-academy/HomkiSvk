@@ -1,8 +1,7 @@
 package day1;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.OptionalDouble;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Exercises {
 
@@ -14,6 +13,7 @@ public class Exercises {
         List<String> words = Arrays.asList("Peter", "Janko", "Ferko", "Franta");
         List<String> cities = Arrays.asList("ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS");
         List<Character> sentence = Arrays.asList('J', 'a', 'n', 'k', 'o', ' ', 'a', ' ', 'M', 'a', 'r', 'i', 'e', 'n', 'k', 'a');
+        String string = "Alphabetical numeric unordered";
 
 
         System.out.println("Exercise 1:");
@@ -73,7 +73,7 @@ public class Exercises {
         words.toString()
                 .chars()
                 .filter(Character::isUpperCase)
-                .forEach(upper -> System.out.println((char)upper));
+                .forEach(upper -> System.out.println((char) upper));
 
         System.out.println("---------------");
 
@@ -81,7 +81,7 @@ public class Exercises {
         System.out.println("Exercise 7:");
 
         cities.stream()
-                .filter(firstChar -> firstChar.startsWith("A"))
+                .filter(word -> word.startsWith("A"))
                 .forEach(System.out::println);
 
         System.out.println("---------------");
@@ -98,7 +98,10 @@ public class Exercises {
 
         System.out.println("Exercise 9:");
 
-
+        Map<Character, Long> letterCounter = string.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+        System.out.println(letterCounter);
 
         System.out.println("---------------");
 
@@ -106,12 +109,10 @@ public class Exercises {
         System.out.println("Exercise 10:");
 
 
-
         System.out.println("---------------");
 
 
         System.out.println("Exercise 11:");
-
 
 
         System.out.println("---------------");
