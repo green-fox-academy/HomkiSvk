@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="LoginCSS.css">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<!-- Form-->
+<div class="form">
+    <div class="form-toggle"></div>
+    <div class="form-panel one">
+        <div class="form-header">
+            <h1>Account Login</h1>
+        </div>
+        <div class="form-content">
+            <form>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" name="username" required="required" autofocus/>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" required="required"/>
+                    <button type="button" onclick="myFunction()">Show</button>
+                    <a class="form-recovery" href="#">Forgot Password?</a>
+                </div>
+
+                <div class="form-group">
+                    <button id="submit" type="submit">Log In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    };
+
+</script>
+
+</body>
+</html>
