@@ -130,7 +130,8 @@ public class Exercises {
 
         System.out.println("---------------");
 
-        //Map<String, Fox> foxByColors = foxList.stream().
+        //Map<String, Fox> foxByColors = foxList.stream()
+
 
         System.out.println("---------------");
 
