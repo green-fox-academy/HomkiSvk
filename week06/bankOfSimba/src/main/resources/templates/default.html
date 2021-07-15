@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Thymeleaf Exercise # Bank of Simba</title>
+    <link rel="stylesheet" th:href="@{css/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body style="background-color: cornflowerblue; font-size: large;"
+      text="white">
+<table>
+    <thead>
+    <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Type</th>
+        <th>Good or Bad One</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="account : ${acc}" th:object="${account}"
+        th:style="${account.class.name == 'com.greenfoxacademy.bankofsimba.models.KingsAccount'}
+        ? 'background: darkviolet'">
+        <td th:text="${accountStat.index}"></td>
+        <td th:text="*{name}"></td>
+        <td th:text="*{#numbers.formatDecimal(balance, 1, 'DEFAULT', 2, 'DEFAULT')}
+         + ' ' + ${currency}"></td>
+        <td th:text="*{animalType}"></td>
+        <td th:text="*{badOrGood} ? 'Bad Guy' : 'Good One'"></td>
+        <form method="post" th:action="@{/update-balance}"  th:object="${account}">
+            <td><input type="hidden" name="index" th:value="${accountStat.index}"/>
+                <button type="submit">Raise the money</button>
+            </td>
+        </form>
+    </tr>
+    <tr>
+        <form action="/show" method="post">
+            <td></td>
+            <td><label>
+                <input type="text" name="name">
+            </label></td>
+            <td><label>
+                <input type="text" name="balance">
+            </label></td>
+            <td><label>
+                <input type="text" name="animalType">
+            </label></td>
+            <td><label>
+                <input type="text" name="badOrGood">
+            </label></td>
+            <td>
+                <button type="submit">Add new account</button>
+            </td>
+        </form>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

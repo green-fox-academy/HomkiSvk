@@ -1,0 +1,40 @@
+body {
+    background-color: cornflowerblue
+}
+
+table {
+    border: 1px solid #D3D3D3;
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+table td, table th {
+    border: 1px solid #AAAAAA;
+    padding: 7px 10px;
+}
+
+table tbody td {
+    font-size: 15px;
+    color: #222222;
+}
+
+table thead {
+    background: #041119;
+    border-bottom: 7px darkgray;
+}
+
+table thead th {
+    font-size: 18px;
+    font-weight: normal;
+    color: #EAEAEA;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: gray;
+}
+
+tbody tr:nth-child(even) {
+    background-color: lightgray
+}
