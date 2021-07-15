@@ -10,6 +10,9 @@ import java.util.Random;
 @Controller
 public class HelloToTheWorld {
 
+    // u can use this to test
+    // http://localhost:8080/web/world-greeting?fontSize=100px&color=white
+
     String[] hellos = {"Mirëdita", "Ahalan", "Parev", "Zdravei", "Nei Ho", "Dobrý den", "Ahoj", "Goddag",
             "Goede dag, Hallo", "Hello", "Saluton", "Hei", "Bonjour",
             "Guten Tag", "Gia'sou", "Aloha", "Shalom", "Namaste", "Namaste", "Jó napot", "Halló", "Helló",
@@ -26,5 +29,4 @@ public class HelloToTheWorld {
         model.addAttribute("thisIs", hellos[new Random().nextInt(hellos.length-1)]);
         return "greetingWorld";
     }
-
 }
