@@ -1,0 +1,25 @@
+<div th:fragment="table" class="container">
+  <table>
+    <thead>
+    <tr>
+      <th>ID
+      <th>Name
+      <th>Description
+      <th>Price
+      <th>Stock
+    </thead>
+    <tbody>
+    <tr th:each="item : ${itemList}" th:object="${item}">
+      <td th:text="${itemStat.index}">
+      <td th:text="*{name}">
+      <td th:text="*{description}">
+      <td th:text="*{#numbers.formatDecimal(price, 1, 'DEFAULT', 2, 'DEFAULT')}
+      + ' ' + ${currency}">">
+      <td th:text="*{quantityOfStock}">
+    </tbody>
+  </table>
+</div>
+
+<div th:fragment="single" class="container">
+  <h2 th:text="${item}"></h2>
+</div>
