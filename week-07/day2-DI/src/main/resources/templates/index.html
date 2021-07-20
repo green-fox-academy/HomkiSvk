@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" th:href="@{css/style.css}" />
+    <title>Useful Utilities</title>
+</head>
+<body th:style="${color == null} ? 'background-color: darkgrey' : 'background-color: ' +${color}">
+<div th:replace="fragments/navbar :: navbar"></div>
+<div th:replace="fragments/searchBar :: searchbar"></div>
+<div th:replace="fragments/view :: single"></div>
+</body>
+</html>

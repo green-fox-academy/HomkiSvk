@@ -1,0 +1,20 @@
+<div th:fragment="searchbar" class="searchbar">
+  <form action="/useful/email" method="post">
+    <label>
+      <input type="text" name="email"/>
+    </label>
+    <button type="submit">Validate email</button>
+  </form>
+  <form action="/search" method="post">
+    <label>
+      <input type="text" name="word"/>
+    </label>
+    <button type="submit">Encode a word</button>
+  </form>
+  <form action="/search" method="post">
+    <label>
+      <input type="text" name="searchword"/>
+    </label>
+    <button type="submit">Decode a word</button>
+  </form>
+</div>
