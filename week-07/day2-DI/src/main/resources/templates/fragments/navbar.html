@@ -5,19 +5,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto topnav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/useful/colored">Colored</a>
+                    <a class="nav-link" th:href="@{/useful/colored}">Colored</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/useful/email">Email</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/useful/email(email='is@this.valid')">Email-testmail</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/useful/coding">Coding</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/useful/coding">Coding</a>
+                    <a class="nav-link" th:href="@{/useful/email(email='is@this.valid')}">Email-testmail</a>
                 </li>
             </ul>
         </div>

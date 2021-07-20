@@ -1,3 +1,12 @@
 <div th:fragment="single" class="container">
-  <h2 th:text="${item}"></h2>
+    <h2 th:style="${isValid} ? 'color: green' : 'color: red'"
+            th:text="${isValid} ? ${email} + ' is valid email address' :
+            ${email} + ' is not a valid email address'"></h2>
+</div>
+
+<div th:fragment="nothing">
+</div>
+
+<div th:fragment="encoding" class="container">
+    <h2 th:text="${encodedWord}"></h2>
 </div>

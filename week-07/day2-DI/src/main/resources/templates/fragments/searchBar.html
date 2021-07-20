@@ -5,15 +5,21 @@
     </label>
     <button type="submit">Validate email</button>
   </form>
-  <form action="/search" method="post">
-    <label>
+  <form action="/useful/encoder" method="post">
+    <label>Word:
       <input type="text" name="word"/>
+    </label>
+    <label>Number:
+      <input type="number" name="number"/>
     </label>
     <button type="submit">Encode a word</button>
   </form>
-  <form action="/search" method="post">
-    <label>
-      <input type="text" name="searchword"/>
+  <form action="/useful/decoder" method="post">
+    <label>Word:
+      <input type="text" name="word"/>
+    </label>
+    <label>Number:
+      <input type="number" name="number"/>
     </label>
     <button type="submit">Decode a word</button>
   </form>

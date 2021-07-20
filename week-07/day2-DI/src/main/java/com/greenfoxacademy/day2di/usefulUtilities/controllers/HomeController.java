@@ -19,8 +19,7 @@ public class HomeController {
     }
 
     @GetMapping("/useful")
-    public String homePage(Model model) {
-
+    public String homePage() {
         return "index";
     }
 
@@ -30,21 +29,29 @@ public class HomeController {
         return "index";
     }
 
-    @PostMapping("/useful/email")
+    @GetMapping("/useful/email")
     public String homePageEmail(Model model, @RequestParam String email) {
         model.addAttribute("isValid", service.validateEmail(email));
+        model.addAttribute("email", email);
         return "index";
     }
 
-    @PostMapping("/useful/coding")
-    public String postCode() {
-
+    @PostMapping("/useful/email")
+    public String emailVerify (Model model, @RequestParam String email) {
+        model.addAttribute("isValid", service.validateEmail(email));
+        model.addAttribute("email", email);
         return "index";
     }
 
-    @GetMapping("/useful/coding")
-    public String getCode() {
+    @PostMapping("/useful/encoder")
+    public String postCode(Model model, @RequestParam String word, Integer number) {
+        model.addAttribute("encodedWord", service.caesar(word, number));
+        return "index";
+    }
 
+    @PostMapping("/useful/decoder")
+    public String getCode(Model model, @RequestParam String word, Integer number) {
+        model.addAttribute("encodedWord", service.caesar(word, -number));
         return "index";
     }
 
