@@ -1,7 +1,13 @@
 package day1;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 public class Exercises {
 
@@ -22,7 +28,7 @@ public class Exercises {
                 new Fox("Modra", "Blue", 7),
                 new Fox("TmavoZelena", "Green", 8),
                 new Fox("Oranzova", "Orange", 3)
-                );
+        );
 
 
         System.out.println("Exercise 1:");
@@ -33,8 +39,6 @@ public class Exercises {
                 .forEach(System.out::println);
 
         System.out.println("---------------");
-
-
         System.out.println("Exercise 2:");
 
         numbers.stream()
@@ -43,8 +47,6 @@ public class Exercises {
                 .forEach(num -> System.out.println(Math.pow(num, 2)));
 
         System.out.println("---------------");
-
-
         System.out.println("Exercise 3:");
 
         numbers2.stream()
@@ -53,8 +55,6 @@ public class Exercises {
                 .forEach(System.out::println);
 
         System.out.println("---------------");
-
-
         System.out.println("Exercise 4:");
 
         OptionalDouble average = numbers.stream()
@@ -64,8 +64,6 @@ public class Exercises {
         System.out.println(average);
 
         System.out.println("---------------");
-
-
         System.out.println("Exercise 5:");
 
         int sum = numbers3.stream()
@@ -75,8 +73,6 @@ public class Exercises {
         System.out.println(sum);
 
         System.out.println("---------------");
-
-
         System.out.println("Exercise 6:");
 
         words.toString()
@@ -85,8 +81,6 @@ public class Exercises {
                 .forEach(upper -> System.out.println((char) upper));
 
         System.out.println("---------------");
-
-
         System.out.println("Exercise 7:");
 
         cities.stream()
@@ -94,8 +88,6 @@ public class Exercises {
                 .forEach(System.out::println);
 
         System.out.println("---------------");
-
-
         System.out.println("Exercise 8:");
 
         StringBuilder builder = new StringBuilder();
@@ -103,46 +95,56 @@ public class Exercises {
         System.out.println(builder);
 
         System.out.println("---------------");
-
-
         System.out.println("Exercise 9:");
 
-        Map<Character, Long> letterCounter = string.chars()
+        string.chars()
                 .mapToObj(c -> (char) c)
-                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
-        System.out.println(letterCounter);
+                .collect(groupingBy(c -> c, counting()))
+                .entrySet().forEach(System.out::println);
 
         System.out.println("---------------");
-
-
         System.out.println("Exercise 10:");
 
         foxList.stream()
                 .filter(fox -> fox.getColor().equals("Green"))
                 .forEach(System.out::println);
 
-        System.out.println("---------------");
+        System.out.println("----");
 
         foxList.stream()
                 .filter(fox -> fox.getColor().equals("Green"))
                 .filter(fox -> fox.getAge() > 5)
                 .forEach(System.out::println);
 
-        System.out.println("---------------");
+        System.out.println("----");
 
-        //Map<String, Fox> foxByColors = foxList.stream()
+        foxList.stream()
+                .collect(groupingBy(Fox::getColor, counting()))
+                .entrySet()
+                .forEach(System.out::println);
 
-
-        System.out.println("---------------");
-
-
+        System.out.println("--------------");
         System.out.println("Exercise 11:");
 
+        try {
+            Files.lines(Path.of("file.txt"), Charset.defaultCharset())
+                    .flatMap(line -> Arrays.stream(line.trim().split(" ")))
+                    .map(word -> word.replaceAll("[^a-zA-Z]", "").toLowerCase().trim())
+                    .filter(word -> word.length() > 0)
+                    .map(word -> new AbstractMap.SimpleEntry<>(word, 1))
+                    .collect(groupingBy(AbstractMap.SimpleEntry::getKey, counting()))
+                    .entrySet().stream()
+                    .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+                    .limit(100)
+                    .forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         System.out.println("---------------");
-
-
         System.out.println("Exercise 12:");
+
+
 
     }
 }
