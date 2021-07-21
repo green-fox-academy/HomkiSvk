@@ -1,0 +1,27 @@
+<div th:fragment="table" class="container">
+  <table>
+    <thead>
+    <tr>
+      <th>ID
+      <th>Name
+    </thead>
+    <tbody>
+    <tr th:each="name : ${names}" >
+      <td th:text="${nameStat.index}">
+      <td th:text="${name}">
+    </tbody>
+  </table>
+</div>
+
+<div th:fragment="checkResult" class="container">
+  <h2 th:style="${isThere} ? 'color: green' : 'color: red'"
+      th:text="${isThere} ? ${name} + ' is in the list' :
+            ${name} + ' is not in the list'"></h2>
+</div>
+
+<div th:fragment="nothing">
+</div>
+
+<div th:fragment="count" class="container">
+  <h2 th:text="${studentCount}"></h2>
+</div>

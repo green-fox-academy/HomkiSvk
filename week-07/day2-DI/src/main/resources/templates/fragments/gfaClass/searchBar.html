@@ -1,0 +1,17 @@
+<div th:fragment="addForm" class="searchbar">
+  <form action="/gfa/save" method="post">
+    <label>
+      <input type="text" name="name"/>
+    </label>
+    <button type="submit">Add student</button>
+  </form>
+</div>
+
+<div th:fragment="checkForm" class="searchbar">
+  <form action="/gfa/check" method="post">
+    <label>
+      <input type="text" name="name"/>
+    </label>
+    <button type="submit">Check student</button>
+  </form>
+</div>

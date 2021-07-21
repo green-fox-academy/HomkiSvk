@@ -1,11 +1,14 @@
-<div th:fragment="searchbar" class="searchbar">
-  <form action="/useful/email" method="post">
-    <label>
+<div th:fragment="searchbar" class="searchbar" >
+  <form action="/useful/email" method="post" id="email">
+    <h5>U can validate your e-mail here:</h5>
+    <label>E-mail to validate:
       <input type="text" name="email"/>
     </label>
     <button type="submit">Validate email</button>
   </form>
+
   <form action="/useful/encoder" method="post">
+    <h5>U can encode and decode your word in these boxes below</h5>
     <label>Word:
       <input type="text" name="word"/>
     </label>
@@ -14,6 +17,7 @@
     </label>
     <button type="submit">Encode a word</button>
   </form>
+
   <form action="/useful/decoder" method="post">
     <label>Word:
       <input type="text" name="word"/>

@@ -25,12 +25,42 @@
 .searchbar {
     padding: 0 15%;
     margin: 50px auto;
-    width: 80%;
+    width: 50%;
 }
 .searchbar form{
     width: 100%;
 }
 
 body {
+    background-image: url("../images/pexels-photo-2680270.jpeg");
     font-family: "Open Sans", sans-serif;
+}
+table {
+    background: #012b39;
+    border-radius: 0.25em;
+    border-collapse: collapse;
+    margin-top: 5%;
+    width: 100%;
+}
+th {
+    border-bottom: 1px solid #364043;
+    color: #e2b842;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    text-align: left;
+}
+td {
+    color: #fff;
+    font-weight: 400;
+    padding: 0.65em 1em;
+}
+.disabled td {
+    color: #4f5f64;
+}
+tbody tr {
+    transition: background 0.25s ease;
+}
+tbody tr:hover {
+    background: #014055;
 }

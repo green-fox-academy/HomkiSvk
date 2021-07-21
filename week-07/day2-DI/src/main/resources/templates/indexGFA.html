@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type=text/css th:href="@{/css/style.css}" />
+    <title>Greenfox Class App</title>
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div th:replace="${studentCount == null} ? ~{fragments/gfaClass/view :: nothing}
+ : ~{fragments/gfaClass/view :: count}"></div>
+
+<div th:replace="${addStudent == null} ? ~{fragments/gfaClass/view :: nothing}
+ : ~{fragments/gfaClass/searchBar :: addForm}"></div>
+
+<div th:replace="${checkStudent == null} ? ~{fragments/gfaClass/view :: nothing}
+ : ~{fragments/gfaClass/searchBar :: checkForm}"></div>
+
+<div th:replace="${isThere == null} ? ~{fragments/gfaClass/view :: nothing}
+ : ~{fragments/gfaClass/view :: checkResult}"></div>
+
+<div th:replace="${names == null} ? ~{fragments/gfaClass/view :: nothing}
+ : ~{fragments/gfaClass/view :: table}"></div>
+
+</body>
+</html>
