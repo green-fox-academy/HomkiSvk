@@ -9,7 +9,7 @@
     <title>Greenfox Class App</title>
 </head>
 <body>
-<div th:replace="fragments/navbar :: navbar"></div>
+<div th:replace="fragments/gfaClass/navbar :: navbar"></div>
 
 <div th:replace="${studentCount == null} ? ~{fragments/gfaClass/view :: nothing}
  : ~{fragments/gfaClass/view :: count}"></div>
