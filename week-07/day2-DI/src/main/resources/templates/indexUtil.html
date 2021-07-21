@@ -13,8 +13,8 @@
 <body th:style="${color == null} ? 'background-color: darkgrey' : 'background-color: ' +${color}">
 <div th:replace="fragments/navbar :: navbar"></div>
 <div th:replace="fragments/searchBar :: searchbar"></div>
-<div th:replace="${email == null} ? ~{fragments/view :: nothing} : ~{fragments/view :: single}"></div>
-<div th:replace="${encodedWord == null} ? ~{fragments/view :: nothing} : ~{fragments/view :: encoding}"></div>
+<div th:replace="${email == null} ? ~{fragments/utilView :: nothing} : ~{fragments/utilView :: single}"></div>
+<div th:replace="${encodedWord == null} ? ~{fragments/utilView :: nothing} : ~{fragments/utilView :: encoding}"></div>
 </body>
 </html>
 
