@@ -1,0 +1,36 @@
+<div th:fragment="infoBox">
+    <img alt="green fox" th:src="@{/images/greenfox.png}"><br>
+
+    <span th:text="${fox==null} ? 'This is Fero. Currently
+    living on salad and water. He knows 0 tricks.' : 'This is ' +${fox.getName()} +
+    '. Currently living on ' + ${fox.food.displayValue} + ' and '+${fox.drink.displayValue} +'.
+     He knows 0 tricks.'
+    "></span>
+
+    <h2>Known tricks</h2>
+
+    <div th:replace="${tricksList != null} ?
+    ~{fragments/tricksView :: list} :
+    ~{fragments/tricksView :: emptyList}">
+    </div>
+</div>
+
+<div th:fragment="nothing"></div>
+
+<div th:fragment="nutrition">
+    <form th:action="'/nutritionStore/?name=' + ${fox.getName()}" method="post">
+        <label>Food:
+            <select name="food">
+                <option th:each="food : ${T(com.greenfoxacademy.foxclub.models.Foods).values()}"
+                        th:value="${food}" th:text="${food.displayValue}"></option>
+            </select>
+        </label>
+        <label>Drink:
+            <select name="drink">
+                <option th:each="drink : ${T(com.greenfoxacademy.foxclub.models.Drinks).values()}"
+                        th:value="${drink}" th:text="${drink.displayValue}"></option>
+            </select>
+        </label>
+        <button type="submit">Change</button>
+    </form>
+</div>
