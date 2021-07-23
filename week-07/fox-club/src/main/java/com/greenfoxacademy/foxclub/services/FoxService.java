@@ -26,4 +26,8 @@ public class FoxService {
                 .findAny()
                 .orElse(null);
     }
+
+    public boolean isValid(String name) {
+        return name != null && getFox(name) != null && !name.equals("");
+    }
 }

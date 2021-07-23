@@ -20,11 +20,12 @@ public class MainController {
 
     @GetMapping("/")
     public String home(Model model, @RequestParam (required = false) String name) {
-        if (name == null || service.getFox(name) == null || name.equals(""))
-            return "login";
+        if (!(service.isValid(name)))
+            return "redirect:/login";
         else {
             model.addAttribute("fox", service.getFox(name));
-            model.addAttribute("infoPage", true);
+            model.addAttribute("fragment", "infoBox");
+            model.addAttribute("trickList", service.getFox(name).getTricks());
             return "index";
         }
     }

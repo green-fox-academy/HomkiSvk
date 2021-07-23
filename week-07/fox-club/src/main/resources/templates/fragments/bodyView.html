@@ -1,15 +1,14 @@
 <div th:fragment="infoBox">
     <img alt="green fox" th:src="@{/images/greenfox.png}"><br>
 
-    <span th:text="${fox==null} ? 'This is Fero. Currently
-    living on salad and water. He knows 0 tricks.' : 'This is ' +${fox.getName()} +
+    <span th:text="'This is ' +${fox.name} +
     '. Currently living on ' + ${fox.food.displayValue} + ' and '+${fox.drink.displayValue} +'.
-     He knows 0 tricks.'
+     He knows ' + ${fox.tricks.size()} +' tricks.'
     "></span>
 
     <h2>Known tricks</h2>
 
-    <div th:replace="${tricksList != null} ?
+    <div th:replace="${trickList.size() !=0}  ?
     ~{fragments/tricksView :: list} :
     ~{fragments/tricksView :: emptyList}">
     </div>
@@ -32,5 +31,17 @@
             </select>
         </label>
         <button type="submit">Change</button>
+    </form>
+</div>
+
+<div th:fragment="tricks">
+    <form th:action="'/trickCenter/?name=' + ${fox.getName()}" method="post">
+        <label>Trick:
+            <select name="trick">
+                <option th:each="trick : ${T(com.greenfoxacademy.foxclub.models.Trick).values()}"
+                        th:value="${trick}" th:text="${trick.displayValue}"></option>
+            </select>
+        </label>
+        <button type="submit">Add</button>
     </form>
 </div>

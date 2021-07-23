@@ -3,6 +3,7 @@ package com.greenfoxacademy.foxclub.models;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -18,6 +19,10 @@ public class Fox {
         this.name = name;
         this.drink = Drinks.YOHOO;
         this.food = Foods.KITKAT;
-        this.tricks = null;
+        this.tricks = new ArrayList<>();
+    }
+
+    public void addTrick(Trick trick) {
+        tricks.add(trick);
     }
 }

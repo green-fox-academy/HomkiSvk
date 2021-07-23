@@ -1,10 +1,14 @@
-<div th:fragment="list" >
-  <table>
-
-  </table>
+<div th:fragment="list">
+    <table>
+        <tbody>
+        <tr th:each="trick : ${trickList}">
+            <td><a th:href="@{/images/${trick.description}}" th:text="${trick.displayValue}"></a></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 
-<div th:fragment="emptyList" >
-  <span>You know no tricks, yet. Go and learn some.</span>
+<div th:fragment="emptyList">
+    <span>You know no tricks, yet. Go and learn some.</span>
 </div>

@@ -1,39 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <meta charset="UTF-8">
     <title>Your Fox</title>
 </head>
 <body>
 <nav>
     <ul>
-        <li><a th:href="${fox!=null} ? '/?name=' + ${fox.getName()} : ''">Information</a></li>
-        <li><a th:href="${fox!=null} ? '/nutritionStore?name=' + ${fox.getName()} : ''" >Nutrition</a></li>
-        <li><a th:href="${fox!=null} ? '/trickCenter?name=' + ${fox.getName()} : ''" >Trick Center</a></li>
+        <li><a th:href="${fox!=null} ? '/?name=' + ${fox.name} : ''">Information</a></li>
+        <li><a th:href="${fox!=null} ? '/nutritionStore?name=' + ${fox.name} : ''" >Nutrition</a></li>
+        <li><a th:href="${fox!=null} ? '/trickCenter?name=' + ${fox.name} : ''" >Trick Center</a></li>
     </ul>
 </nav>
-<div th:replace="${infoPage != null} ?
-        ~{fragments/bodyView :: infoBox} :
-        ~{fragments/bodyView :: nothing}">
-</div>
-<div th:replace="${nutrition != null} ?
-        ~{fragments/bodyView :: nutrition} :
-        ~{fragments/bodyView :: nothing}">
-</div>
-<div th:replace="${tricks != null} ?
-        ~{fragments/bodyView :: infoBox} :
-        ~{fragments/bodyView :: nothing}">
-</div>
-<div th:replace="${history != null} ?
-        ~{fragments/bodyView :: infoBox} :
+<div th:replace="${fragment != null} ?
+        ~{fragments/bodyView :: ${fragment}} :
         ~{fragments/bodyView :: nothing}">
 </div>
 </body>
 </html>
-
-<!--
-<style>
-    body {
-        background-image: url("../static/images/pexels-photo-1179229.jpeg");
-    }
-</style>-->
