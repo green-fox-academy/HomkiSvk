@@ -1,5 +1,7 @@
+<div th:fragment="nothing"></div>
+
 <div th:fragment="infoBox">
-    <img alt="green fox" th:src="@{/images/greenfox.png}"><br>
+    <img alt="green fox" th:src="${imageLocation==null} ? @{/images/greenfox.png} : @{|/images/${imageLocation}|}"><br>
 
     <span th:text="'This is ' +${fox.name} +
     '. Currently living on ' + ${fox.food.displayValue} + ' and '+${fox.drink.displayValue} +'.
@@ -13,8 +15,6 @@
     ~{fragments/tricksView :: emptyList}">
     </div>
 </div>
-
-<div th:fragment="nothing"></div>
 
 <div th:fragment="nutrition">
     <form th:action="'/nutritionStore/?name=' + ${fox.getName()}" method="post">
@@ -35,11 +35,13 @@
 </div>
 
 <div th:fragment="tricks">
-    <form th:action="'/trickCenter/?name=' + ${fox.getName()}" method="post">
+    <form th:action="'/trickCenter/?name=' + ${fox.name}" method="post">
         <label>Trick:
             <select name="trick">
                 <option th:each="trick : ${T(com.greenfoxacademy.foxclub.models.Trick).values()}"
-                        th:value="${trick}" th:text="${trick.displayValue}"></option>
+                        th:if="${!trickList.contains(trick)}"
+                        th:value="${trick}"
+                        th:text="${trick.displayValue}"></option>
             </select>
         </label>
         <button type="submit">Add</button>

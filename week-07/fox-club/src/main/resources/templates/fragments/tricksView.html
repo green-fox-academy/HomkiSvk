@@ -2,7 +2,8 @@
     <table>
         <tbody>
         <tr th:each="trick : ${trickList}">
-            <td><a th:href="@{/images/${trick.description}}" th:text="${trick.displayValue}"></a></td>
+            <td><a th:href="'/?name=' + ${fox.getName()} + '&imageLocation=' +${trick.description}"
+                   th:text="${trick.displayValue}"></a></td>
         </tr>
         </tbody>
     </table>

@@ -19,12 +19,15 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String home(Model model, @RequestParam (required = false) String name) {
+    public String home(Model model,
+                       @RequestParam (required = false) String name,
+                       @RequestParam (required = false) String imageLocation) {
         if (!(service.isValid(name)))
             return "redirect:/login";
         else {
-            model.addAttribute("fox", service.getFox(name));
             model.addAttribute("fragment", "infoBox");
+            model.addAttribute("imageLocation", imageLocation);
+            model.addAttribute("fox", service.getFox(name));
             model.addAttribute("trickList", service.getFox(name).getTricks());
             return "index";
         }

@@ -26,14 +26,15 @@ public class FoxController {
         if (!(service.isValid(name)))
             return "redirect:/login";
         else {
-            model.addAttribute("fox", service.getFox(name));
             model.addAttribute("fragment", "nutrition");
+            model.addAttribute("fox", service.getFox(name));
             return "index";
         }
     }
 
     @PostMapping("/nutritionStore")
-    public String nutritionChange(@RequestParam String name, @RequestParam Foods food,
+    public String nutritionChange(@RequestParam String name,
+                                  @RequestParam Foods food,
                                   @RequestParam Drinks drink) {
         if (!(service.isValid(name)))
             return "redirect:/login";
@@ -46,23 +47,24 @@ public class FoxController {
 
     @GetMapping("/trickCenter")
     public String getTrickView(@RequestParam String name, Model model) {
-        if (name == null || service.getFox(name) == null)
+        if (!(service.isValid(name)))
             return "redirect:/login";
         else {
-            model.addAttribute("fox", service.getFox(name));
             model.addAttribute("fragment", "tricks");
+            model.addAttribute("fox", service.getFox(name));
+            model.addAttribute("trickList", service.getFox(name).getTricks());
             return "index";
         }
     }
 
     @PostMapping("/trickCenter")
-    public String setTrickView(@RequestParam String name, @RequestParam Trick trick, Model model) {
-        if (name == null || service.getFox(name) == null)
+    public String setTrickView(@RequestParam String name,
+                               @RequestParam Trick trick) {
+        if (!(service.isValid(name)))
             return "redirect:/login";
         else {
             service.getFox(name).addTrick(trick);
             return "redirect:/?name=" + name;
         }
     }
-
 }

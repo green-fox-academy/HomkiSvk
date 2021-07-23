@@ -23,6 +23,7 @@ public class Fox {
     }
 
     public void addTrick(Trick trick) {
-        tricks.add(trick);
+        if (!tricks.contains(trick))
+            tricks.add(trick);
     }
 }
