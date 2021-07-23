@@ -16,22 +16,31 @@ public class FoxController {
     private final FoxService service;
 
     @Autowired
-    FoxController(FoxService service){
+    FoxController(FoxService service) {
         this.service = service;
     }
 
     @GetMapping("/nutritionStore")
-    public String nutrition(@RequestParam String name, Model model){
-        model.addAttribute("fox", service.createFoxGetList(name));
-        model.addAttribute("nutrition", true);
-        return "index";
+    public String nutrition(@RequestParam String name, Model model) {
+        if (name == null || service.getFox(name) == null)
+            return "login";
+        else {
+            model.addAttribute("fox", service.getFox(name));
+            model.addAttribute("nutrition", true);
+            return "index";
+        }
     }
-     @PostMapping("/nutritionStore")
+
+    @PostMapping("/nutritionStore")
     public String nutritionChange(@RequestParam String name, @RequestParam Foods food,
                                   @RequestParam Drinks drink) {
-        service.createFoxGetList(name).setDrink(drink);
-        service.createFoxGetList(name).setFood(food);
-        return "redirect:/?name=" + name;
-     }
+        if (name == null || service.getFox(name) == null)
+            return "login";
+        else {
+            service.getFox(name).setDrink(drink);
+            service.getFox(name).setFood(food);
+            return "redirect:/?name=" + name;
+        }
+    }
 
 }

@@ -13,20 +13,17 @@ public class FoxService {
         this.repo = repo;
     }
 
-    public Fox createFoxGetList(String name) {
-        Fox foxie = null;
-        if (name != null) {
-            foxie = repo.getFoxList().stream()
-                    .filter(fox -> fox.getName().equals(name))
-                    .findAny()
-                    .orElse(null);
-            if (foxie == null) {
-                foxie = new Fox(name);
-                repo.getFoxList().add(foxie);
-            }
+    public boolean createFox(String name) {
+        if (name != null || !(name.equals(""))) {
+            return repo.getFoxList().add(new Fox(name));
         }
-        return foxie;
+        else return false;
     }
 
-
+    public Fox getFox(String name) {
+        return repo.getFoxList().stream()
+                .filter(fox -> fox.getName().equals(name))
+                .findAny()
+                .orElse(null);
+    }
 }

@@ -8,7 +8,6 @@
 <nav>
     <ul>
         <li><a th:href="${fox!=null} ? '/?name=' + ${fox.getName()} : ''">Information</a></li>
-        <li><a th:href="login" >Login</a></li>
         <li><a th:href="${fox!=null} ? '/nutritionStore?name=' + ${fox.getName()} : ''" >Nutrition</a></li>
         <li><a th:href="${fox!=null} ? '/trickCenter?name=' + ${fox.getName()} : ''" >Trick Center</a></li>
     </ul>
@@ -29,7 +28,12 @@
         ~{fragments/bodyView :: infoBox} :
         ~{fragments/bodyView :: nothing}">
 </div>
-
-
 </body>
 </html>
+
+<!--
+<style>
+    body {
+        background-image: url("../static/images/pexels-photo-1179229.jpeg");
+    }
+</style>-->

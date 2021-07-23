@@ -17,5 +17,4 @@ public enum Foods {
     public String getDisplayValue() {
         return displayValue;
     }
-
 }
