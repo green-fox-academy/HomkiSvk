@@ -52,7 +52,6 @@ public class FoxController {
         else {
             model.addAttribute("fragment", "tricks");
             model.addAttribute("fox", service.getFox(name));
-            model.addAttribute("trickList", service.getFox(name).getTricks());
             return "index";
         }
     }

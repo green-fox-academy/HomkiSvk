@@ -39,7 +39,7 @@
         <label>Trick:
             <select name="trick">
                 <option th:each="trick : ${T(com.greenfoxacademy.foxclub.models.Trick).values()}"
-                        th:if="${!trickList.contains(trick)}"
+                        th:if="${!fox.tricks.contains(trick)}"
                         th:value="${trick}"
                         th:text="${trick.displayValue}"></option>
             </select>
