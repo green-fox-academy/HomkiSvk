@@ -1,6 +1,7 @@
 package com.greenfoxacademy.mysql.controllers;
 
 import com.greenfoxacademy.mysql.models.Todo;
+import com.greenfoxacademy.mysql.services.AssigneeService;
 import com.greenfoxacademy.mysql.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,49 +12,57 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping ("/todo")
 public class TodoController {
 
-    private final TodoService service;
+    private final TodoService todoService;
+    private final AssigneeService assigneeService;
 
     @Autowired
-    public TodoController (TodoService service){
-        this.service = service;
+    public TodoController (TodoService todoService, AssigneeService assigneeService){
+        this.todoService = todoService;
+        this.assigneeService = assigneeService;
     }
 
     @GetMapping({"/" , "/list"})
     public String list(@RequestParam (required = false) String isActive, Model model) {
         if (isActive !=null){
-            model.addAttribute("todos", service.getAllActive(!(Boolean.parseBoolean(isActive))));
+            model.addAttribute("todos", todoService.getAllActive(!(Boolean.parseBoolean(isActive))));
         } else {
-            model.addAttribute("todos", service.getAll());
+            model.addAttribute("todos", todoService.getAll());
         }
+
+        return "todolist";
+    }
+
+    @PostMapping("/")
+    public String search(@RequestParam String text, Model model){
+        model.addAttribute("todos", todoService.getAllByTextInTitleOrDescription(text) );
         return "todolist";
     }
 
     @GetMapping("/add")
     public String postToDB() {
-        return "add";
+        return "todoAdd";
     }
 
     @PostMapping("/add" )
     public String updateDB(@ModelAttribute Todo todo) {
-        service.save(todo);
+        todoService.save(todo);
         return "redirect:/todo/";
     }
 
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
-        service.delete(id);
+        todoService.delete(id);
         return "redirect:/todo/";
     }
 
     @GetMapping("/{id}/edit")
-    public String editPage(Model model, @PathVariable Long id) {
-        model.addAttribute("id", id);
-        return "edit";
+    public String editPage(@PathVariable Long id) {
+        return "todoAdd";
     }
 
     @PostMapping("/{id}/edit")
     public String editTodo(@PathVariable Long id, @ModelAttribute Todo todo) {
-        service.saveById(id, todo);
+        todoService.saveById(id, todo);
         return "redirect:/todo/";
     }
 

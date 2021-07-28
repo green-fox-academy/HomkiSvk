@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class TodoService {
 
-    private TodoRepo repo;
+    private final TodoRepo repo;
 
     @Autowired
     public TodoService(TodoRepo repo) {
@@ -36,6 +36,10 @@ public class TodoService {
 
     public void delete(Long id) {
         repo.deleteById(id);
+    }
+
+    public List<Todo> getAllByTextInTitleOrDescription(String text){
+        return repo.findAllByDescriptionContainsOrTitleContains(text, text);
     }
 
 

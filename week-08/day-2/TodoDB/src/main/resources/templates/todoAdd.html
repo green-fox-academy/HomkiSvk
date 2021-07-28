@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Todos</title>
+</head>
+<header>
+    <div th:replace="fragments/body :: navbar"></div>
+</header>
+<body>
+<form action="/todo/add" method="post" class="addform">
+    <label>Title:
+        <input type="text" name="title">
+    </label>
+    <label>Description:
+        <input type="text" name="description">
+    </label>
+    <label>Urgent:
+        <select th:valuetype="boolean" name="urgent">
+            <option th:value="true">True</option>
+            <option th:value="false">False</option>
+        </select>
+    </label>
+    <label>Done:
+        <select th:valuetype="boolean" name="done">
+            <option th:value="true">True</option>
+            <option th:value="false">False</option>
+        </select>
+    </label>
+    <button type="submit">Add</button>
+</form>
+
+</body>
+</html>
+

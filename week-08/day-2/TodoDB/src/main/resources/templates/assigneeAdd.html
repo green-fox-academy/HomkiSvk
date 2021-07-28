@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <title>Assignee</title>
+</head>
+<header>
+  <div th:replace="fragments/body :: navbar"></div>
+</header>
+<body>
+<form action="/todo/assignee/add" method="post" class="addform">
+  <label>Name:
+    <input type="text" name="name">
+  </label>
+  <label>Email:
+    <input type="text" name="email">
+  </label>
+  <button type="submit">Add</button>
+</form>
+
+</body>
+</html>
+

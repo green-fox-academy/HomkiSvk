@@ -1,0 +1,20 @@
+<div th:fragment="navbar">
+<nav>
+    <ul>
+        <li><a href="/todo/"> ToDo's</a>
+            <ul>
+                <li><a href="/todo/">List all</a></li>
+                <li><a href="/todo/?isActive=true">List only active</a></li>
+                <li><a href="/todo/add">Add a new one</a></li>
+            </ul>
+        </li>
+        <li><a href="">Assignee's</a>
+            <ul>
+                <li><a href="/todo/assignee/">List all</a></li>
+                <li><a href="/todo/?isActive=true">List only active</a></li>
+                <li><a href="/todo/assignee/add">Add a new one</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+</div>
