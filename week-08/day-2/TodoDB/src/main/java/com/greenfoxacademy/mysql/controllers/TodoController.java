@@ -71,8 +71,8 @@ public class TodoController {
     }
 
     @PostMapping("/date")
-    public String searchByDate(@RequestParam String date, Model model){
-        model.addAttribute("todos", todoService.getAllByDate(Date.valueOf(date), date));
+    public String searchByDate(@RequestParam Date date, Model model){
+        model.addAttribute("todos", todoService.getAllByDate(date, date));
         return "todolist";
     }
 

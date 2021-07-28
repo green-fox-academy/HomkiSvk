@@ -5,10 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.Instant;
 import java.util.Date;
 
 @Entity
@@ -29,12 +27,15 @@ public class Todo {
     @Temporal(value = TemporalType.DATE)
     private Date creationDate = new Date();
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private String dueDate;
+    @Temporal(value = TemporalType.DATE)
+    private Date dueDate;
 
     @ManyToOne
     @JoinColumn(name = "assignee_id")
     @JsonIgnore
     private Assignee assignee;
 
+    public void setDueDate(String date) {
+        this.dueDate = java.sql.Date.valueOf(date);
+    }
 }

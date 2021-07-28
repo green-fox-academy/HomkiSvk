@@ -12,6 +12,6 @@ public interface TodoRepo extends JpaRepository<Todo, Long> {
 
     List<Todo> findAllByDone(Boolean done);
     List<Todo> findAllByDescriptionContainsOrTitleContains(String description, String title);
-    List<Todo> findAllByCreationDateOrDueDateBefore(Date creDate, String date);
+    List<Todo> findAllByCreationDateOrDueDateBefore(Date creDate, Date date);
 
 }

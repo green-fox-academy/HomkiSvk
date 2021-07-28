@@ -56,7 +56,7 @@ public class TodoService {
         return repo.getById(id);
     }
 
-    public List<Todo> getAllByDate(Date crDate, String date){
+    public List<Todo> getAllByDate(Date crDate, Date date){
         return repo.findAllByCreationDateOrDueDateBefore(crDate, date);
     }
 
