@@ -25,5 +25,4 @@ public class Assignee {
     @OneToMany(mappedBy = "assignee", cascade = CascadeType.ALL)
     private List<Todo> todoList;
 
-
 }

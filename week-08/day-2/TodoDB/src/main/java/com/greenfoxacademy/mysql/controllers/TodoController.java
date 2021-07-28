@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+
 @Controller
 @RequestMapping ("/todo")
 public class TodoController {
@@ -28,7 +30,6 @@ public class TodoController {
         } else {
             model.addAttribute("todos", todoService.getAll());
         }
-
         return "todolist";
     }
 
@@ -56,14 +57,23 @@ public class TodoController {
     }
 
     @GetMapping("/{id}/edit")
-    public String editPage(@PathVariable Long id) {
-        return "todoAdd";
+    public String editPage(@PathVariable Long id, Model model) {
+        model.addAttribute("todo", todoService.getById(id));
+        model.addAttribute("assignees", assigneeService.getAll());
+        return "todoEdit";
     }
 
     @PostMapping("/{id}/edit")
-    public String editTodo(@PathVariable Long id, @ModelAttribute Todo todo) {
+    public String editTodo(@PathVariable Long id, @ModelAttribute Todo todo, @RequestParam Long assigneeId) {
         todoService.saveById(id, todo);
+        todoService.saveAssignee(id, assigneeId);
         return "redirect:/todo/";
+    }
+
+    @PostMapping("/date")
+    public String searchByDate(@RequestParam String date, Model model){
+        model.addAttribute("todos", todoService.getAllByDate(Date.valueOf(date), date));
+        return "todolist";
     }
 
 }

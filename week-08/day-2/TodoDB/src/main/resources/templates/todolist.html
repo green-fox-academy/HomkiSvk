@@ -13,7 +13,12 @@
     <label>Search:
         <input type="text" name="text"/>
     </label>
-    <button type="submit">Search</button>
+    <label>Date:
+        <input type="date" name="date">
+    </label>
+    <button type="submit">Search in title, desc</button>
+    <button type="submit" formaction="/todo/assignee/">Search by name</button>
+    <button type="submit" formaction="/todo/date/">Search by date</button>
 </form>
 
 <table>
@@ -24,7 +29,9 @@
         <th>Description</th>
         <th>Urgent</th>
         <th>Done</th>
-        <th>Date</th>
+        <th>Created</th>
+        <th>Due date</th>
+        <th>Assignee</th>
         <th>Delete</th>
         <th>Edit</th>
     </tr>
@@ -37,6 +44,9 @@
         <td th:text="*{urgent}">
         <td th:text="*{done}">
         <td th:text="*{creationDate}">
+        <td th:text="*{{dueDate}}">
+        <td><a th:href="*{assignee != null} ? '/todo/assignee/'+*{assignee.id}+'/todos'"
+               th:text="*{assignee != null} ? *{assignee.name} : 'not assigned'"></a></td>
         <td><a th:href="|/todo/*{id}/delete|">DELETE</a></td>
         <td><a th:href="|/todo/*{id}/edit|">EDIT</a></td>
     </tr>

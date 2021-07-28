@@ -28,6 +28,12 @@ public class AssigneeController {
         return "assigneeList";
     }
 
+    @PostMapping("/")
+    public String allByName(@RequestParam String text, Model model) {
+        model.addAttribute("todos", assigneeService.getTodosByAssigneesName(text));
+        return "todolist";
+    }
+
     @GetMapping("/add")
     public String add() {
         return "assigneeAdd";
@@ -46,17 +52,22 @@ public class AssigneeController {
     }
 
     @GetMapping("/{id}/edit")
-    public String editPage(@PathVariable Long id) {
-        return "assigneeAdd";
+    public String editPage(@PathVariable Long id, Model model) {
+        model.addAttribute("id", id);
+        return "assigneeEdit";
     }
 
     @PostMapping("/{id}/edit")
-    public String editTodo(@PathVariable Long id) {
-        assigneeService.saveById(id);
+    public String editTodo(@PathVariable Long id, @RequestParam String name) {
+        assigneeService.saveById(id, name);
         return "redirect:/todo/assignee/";
     }
 
-
+    @GetMapping ("/{id}/todos")
+    public String getTodos(@PathVariable Long id, Model model) {
+        model.addAttribute("todos", assigneeService.getTodosByAssignee(id));
+        return "todolist";
+    }
 
 
 }

@@ -1,10 +1,10 @@
 package com.greenfoxacademy.mysql.services;
 
 import com.greenfoxacademy.mysql.models.Assignee;
+import com.greenfoxacademy.mysql.models.Todo;
 import com.greenfoxacademy.mysql.repos.AssigneeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -30,10 +30,16 @@ public class AssigneeService {
         assigneeRepo.deleteById(id);
     }
 
-    public void saveById(Long id) {
-        assigneeRepo.save(assigneeRepo.getById(id));
+    public void saveById(Long id, String name) {
+        assigneeRepo.getById(id).setName(name);
     }
 
+    public List<Todo> getTodosByAssignee(Long id) {
+        return assigneeRepo.getById(id).getTodoList();
+    }
 
+    public List<Todo> getTodosByAssigneesName(String name) {
+        return assigneeRepo.getAssigneeByName(name).getTodoList();
+    }
 
 }

@@ -22,7 +22,8 @@
   <tbody>
   <tr th:each="assignee: ${assignees}" th:object="${assignee}">
     <td th:text="*{id}">
-    <td th:text="*{name}">
+    <td><a th:href="${assignee != null} ? '/todo/assignee/'+${assignee.id}+'/todos'"
+           th:text="*{name}"></a></td>
     <td th:text="*{email}">
     <td><a th:href="|/todo/assignee/*{id}/delete|">DELETE</a></td>
     <td><a th:href="|/todo/assignee/*{id}/edit|">EDIT</a></td>
