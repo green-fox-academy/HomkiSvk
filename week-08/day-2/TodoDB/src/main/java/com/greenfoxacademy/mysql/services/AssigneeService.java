@@ -14,15 +14,15 @@ public class AssigneeService {
     private final AssigneeRepo assigneeRepo;
 
     @Autowired
-    public AssigneeService(AssigneeRepo assigneeRepo){
+    public AssigneeService(AssigneeRepo assigneeRepo) {
         this.assigneeRepo = assigneeRepo;
     }
 
-    public void save (Assignee assignee) {
+    public void save(Assignee assignee) {
         assigneeRepo.save(assignee);
     }
 
-    public List<Assignee> getAll(){
+    public List<Assignee> getAll() {
         return assigneeRepo.findAll();
     }
 
@@ -31,7 +31,9 @@ public class AssigneeService {
     }
 
     public void saveById(Long id, String name) {
-        assigneeRepo.getById(id).setName(name);
+        Assignee temp = assigneeRepo.getById(id);
+        temp.setName(name);
+        assigneeRepo.save(temp);
     }
 
     public List<Todo> getTodosByAssignee(Long id) {
