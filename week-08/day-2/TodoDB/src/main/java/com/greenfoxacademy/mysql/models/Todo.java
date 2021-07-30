@@ -38,4 +38,5 @@ public class Todo {
     public void setDueDate(String date) {
         this.dueDate = java.sql.Date.valueOf(date);
     }
+
 }

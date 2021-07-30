@@ -80,4 +80,17 @@ public class ExerciseController {
     public ResponseEntity<List<Log>> allLogs() {
         return ResponseEntity.ok(logService.getAll());
     }
+
+    @PostMapping("/sith")
+    public ResponseEntity<?> sithing(@RequestBody Sith load){
+        if (load == null)
+            return ResponseEntity.ok(new Errors("Feed me some text you have to, padawan young you are. Hmmm."));
+        else {
+            logService.add(new Log("/sith", "text=" +load.getText()));
+            load.setSithTextbla();
+            return ResponseEntity.ok(load);
+        }
+
+    }
+
 }
