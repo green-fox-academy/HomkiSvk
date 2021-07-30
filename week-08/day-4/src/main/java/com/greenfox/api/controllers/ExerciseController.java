@@ -14,7 +14,7 @@ import java.util.Map;
 @RestController
 public class ExerciseController {
 
-    private LogService logService;
+    private final LogService logService;
 
     @Autowired
     public ExerciseController(LogService logService) {
@@ -23,7 +23,7 @@ public class ExerciseController {
 
     @GetMapping("/doubling")
     public ResponseEntity<?> multiply2(@RequestParam(required = false) Integer input) {
-        logService.add(new Log("/doubling", "input="+input.toString()));
+        logService.add(new Log("/doubling", "input="+ input));
         if (input == null)
             return ResponseEntity.ok(new Errors("Please provide an input!"));
 
