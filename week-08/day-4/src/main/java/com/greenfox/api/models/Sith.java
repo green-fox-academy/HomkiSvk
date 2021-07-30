@@ -26,8 +26,8 @@ public class Sith {
         String[] randomTexts = {"Uhm", "Arrgh", "Err..err.err"};
         String[] sentences = text.split("\\.");
 
-        for (int i = 0; i < sentences.length; i++) {
-            List<String> words = new ArrayList<>(Arrays.stream(sentences[i].trim().split(" ")).toList());
+        for (String sentence : sentences) {
+            List<String> words = new ArrayList<>(Arrays.stream(sentence.trim().split(" ")).toList());
             for (int j = 1; j < words.size(); j += 2) {
                 String temp = words.get(j);
                 words.remove(j);
@@ -36,12 +36,11 @@ public class Sith {
             for (int j = 0; j < words.size(); j++) {
                 if (j == 0) {
                     builder.append(words.get(j).substring(0, 1).toUpperCase()).append(words.get(j).substring(1)).append(" ");
-                } else if (j != words.size() - 1){
+                } else if (j != words.size() - 1) {
                     builder.append(words.get(j)).append(" ");
-                }
-                else {
+                } else {
                     builder.append(words.get(j)).append(". ");
-                    for (int k = 0; k < new Random().nextInt(randomTexts.length - 1)+1; k++) {
+                    for (int k = 0; k < new Random().nextInt(randomTexts.length - 1) + 1; k++) {
                         builder.append(randomTexts[new Random().nextInt(randomTexts.length - 1)]).append(". ");
                     }
                 }
