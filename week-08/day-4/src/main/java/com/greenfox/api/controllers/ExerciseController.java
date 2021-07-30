@@ -23,7 +23,7 @@ public class ExerciseController {
 
     @GetMapping("/doubling")
     public ResponseEntity<?> multiply2(@RequestParam(required = false) Integer input) {
-        logService.add(new Log("/doubling", "input="+ input));
+        logService.add(new Log("/doubling", "input=" + input));
         if (input == null)
             return ResponseEntity.ok(new Errors("Please provide an input!"));
 
@@ -34,7 +34,7 @@ public class ExerciseController {
     @GetMapping("/greeter")
     public ResponseEntity<?> awesomeGreeting(@RequestParam(required = false) String name,
                                              @RequestParam(required = false) String title) {
-        logService.add(new Log("/greeter", "name="+name+":title="+title));
+        logService.add(new Log("/greeter", "name=" + name + ":title=" + title));
         if (name == null && title == null) {
             return ResponseEntity.badRequest().body(new Errors("Please provide a name and a title!"));
         } else if (name == null) {
@@ -48,13 +48,13 @@ public class ExerciseController {
 
     @GetMapping("/appenda/{text}")
     public ResponseEntity<?> appendingA(@PathVariable String text) {
-        logService.add(new Log("/appenda", "text="+text));
+        logService.add(new Log("/appenda", "text=" + text));
         return ResponseEntity.ok(new AppendA(text));
     }
 
     @PostMapping("/dountil/{operation}")
     public ResponseEntity<?> doUntil(@PathVariable String operation, @RequestBody Map<String, Integer> payload) {
-        logService.add(new Log("/dountil", "operation="+operation+":until="+payload.get("until").toString()));
+        logService.add(new Log("/dountil", "operation=" + operation + ":until=" + payload.get("until").toString()));
         if (payload.isEmpty()) {
             return ResponseEntity.ok(new Errors("Please provide a number!"));
         } else {
@@ -66,7 +66,7 @@ public class ExerciseController {
 
     @PostMapping("/arrays")
     public ResponseEntity<?> arrayHandler(@RequestBody WhatNumbers whatNumbers) {
-        logService.add(new Log("/arrays", "what="+ whatNumbers.getWhat() +":numbers="+ java.util.Arrays.toString(whatNumbers.getNumbers())));
+        logService.add(new Log("/arrays", "what=" + whatNumbers.getWhat() + ":numbers=" + java.util.Arrays.toString(whatNumbers.getNumbers())));
         if (whatNumbers.getWhat() == null || whatNumbers.getNumbers() == null) {
             return ResponseEntity.badRequest().body(new Errors("Please provide what to do with the numbers!"));
         } else {
@@ -82,15 +82,24 @@ public class ExerciseController {
     }
 
     @PostMapping("/sith")
-    public ResponseEntity<?> sithing(@RequestBody Sith load){
+    public ResponseEntity<?> sithing(@RequestBody Sith load) {
         if (load == null)
             return ResponseEntity.ok(new Errors("Feed me some text you have to, padawan young you are. Hmmm."));
         else {
-            logService.add(new Log("/sith", "text=" +load.getText()));
+            logService.add(new Log("/sith", "text=" + load.getText()));
             load.setSithTextbla();
             return ResponseEntity.ok(load);
         }
-
     }
 
+    @PostMapping("/translate")
+    public ResponseEntity<?> translations(@RequestBody Translation translation) {
+        if (translation == null)
+            return ResponseEntity.ok(new Errors("I can't translate that!"));
+        else {
+            logService.add(new Log("/translate", "text=" + translation.getText() + ":lang=" + translation.getLang()));
+            translation.translate();
+            return ResponseEntity.ok(translation);
+        }
+    }
 }
