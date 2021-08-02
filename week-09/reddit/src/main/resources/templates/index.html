@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title>Reddit</title>
+</head>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/submit">Add new post</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+<ul class="posts">
+    <li>
+        <th:block th:each="post : ${posts}" th:object="${post}">
+            <div class="individual-post">
+                <h4 th:text="*{created}"></h4>
+                <p th:text="*{voteValue}"></p>
+                <a class="upDown" th:href="@{/{id}/voteUp(id=*{id})}">+</a>
+                <a class="upDown" th:href="@{/{id}/voteDown(id=*{id})}">-</a>
+                <a th:href="@{*{url}}" th:text="*{title}"></a>
+            </div>
+        </th:block>
+    </li>
+</ul>
+</body>
+</html>
