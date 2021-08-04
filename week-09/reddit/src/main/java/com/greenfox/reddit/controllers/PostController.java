@@ -19,34 +19,32 @@ public class PostController {
         this.postService = postService;
     }
 
-    @GetMapping ("/")
+    @GetMapping("/")
     public String indexPaged(Model model, @PageableDefault(size = 10) Pageable pageable) {
         model.addAttribute("page", postService.getAllOrderedAndPaginated(pageable));
-
         return "index";
     }
 
     @GetMapping("/submit")
-    public String addNewPost(){
+    public String addNewPost() {
         return "addPost";
     }
 
     @PostMapping("/submit")
-    public String postNewPost(@ModelAttribute Post post){
+    public String postNewPost(@ModelAttribute Post post) {
         postService.addPost(post);
         return "redirect:/";
     }
 
     @GetMapping("/{id}/voteUp")
-    public String voteUpOnPost(@PathVariable Long id){
+    public String voteUpOnPost(@PathVariable Long id) {
         postService.voteUpOnPost(id);
         return "redirect:/";
     }
 
     @GetMapping("/{id}/voteDown")
-    public String voteDownOnPost(@PathVariable Long id){
+    public String voteDownOnPost(@PathVariable Long id) {
         postService.voteDownOnPost(id);
         return "redirect:/";
     }
-
 }

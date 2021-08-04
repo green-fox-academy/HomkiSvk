@@ -38,5 +38,4 @@ public class PostService {
         temp.setVoteValue(temp.getVoteValue() - 1);
         postRepository.save(temp);
     }
-
 }
