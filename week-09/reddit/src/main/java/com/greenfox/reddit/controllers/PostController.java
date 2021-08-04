@@ -21,7 +21,8 @@ public class PostController {
 
     @GetMapping ("/")
     public String indexPaged(Model model, @PageableDefault(size = 10) Pageable pageable) {
-        model.addAttribute("posts", postService.getAllOrderedAndPaginated(pageable));
+        model.addAttribute("page", postService.getAllOrderedAndPaginated(pageable));
+
         return "index";
     }
 

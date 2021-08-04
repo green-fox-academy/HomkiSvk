@@ -15,7 +15,7 @@
 <body>
 <ul class="posts">
     <li>
-        <th:block th:each="post : ${posts}" th:object="${post}">
+        <th:block th:each="post : ${page.content}" th:object="${post}">
             <div class="individual-post">
                 <h4 th:text="*{created}"></h4>
                 <p th:text="*{voteValue}"></p>
@@ -26,5 +26,21 @@
         </th:block>
     </li>
 </ul>
+<div class="pagination-div">
+    <span th:if="${page.hasPrevious()}">
+        <a th:href="@{/(page=${page.number-1})}">Previous</a>
+    </span>
+    <th:block th:each="i: ${#numbers.sequence(0, page.totalPages - 1)}">
+        <span th:if="${page.number == i}" class="selected">[[${i}+1]]</span>
+        <span th:unless="${page.number == i}">
+             <a th:href="@{/(page=${i})}">[[${i}+1]]</a>
+        </span>
+    </th:block>
+    <span th:if="${page.hasNext()}">
+        <a th:href="@{/(page=${page.number+1})}">Next</a>
+    </span>
+</div>
+
+
 </body>
 </html>

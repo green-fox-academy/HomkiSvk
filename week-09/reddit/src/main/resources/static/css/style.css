@@ -33,6 +33,11 @@ form {
     color: #ebecf1;
     display: inline-block;
 }
+.pagination-div a {
+    text-decoration: none ;
+    color: #ebecf1;
+    padding: 5px 10px;
+}
 
 .upDown {
     text-decoration: none ;
