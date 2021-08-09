@@ -6,6 +6,8 @@
 
 [Wanderer - The RPG Game](https://github.com/HomkiSvk/wanderer-java)
 
+[Chat app week 10](https://github.com/green-fox-academy/ChatApp-PeerToPeer)
+
 [Personal github](https://github.com/HomkiSvk)
 
 [WebPage on GitHub.io](https://homkisvk.github.io/index.html)
